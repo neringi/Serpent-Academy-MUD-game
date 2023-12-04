@@ -40,25 +40,26 @@ def createPassword():
 
 def makeCharacter(newUser):
     try:
+        print("You're sleeping peacefully in your bed before a noise reaches you.")
+        time.sleep(2)
+        print("...")
+        time.sleep(2)
+        print("Someone clears their throat with a quick 'Ahem!'")
+        time.sleep(1)
+        print("You're awake and when you open your eyes you realise...")
+        time.sleep(1)
+        print("... you're not in your bed!")
+        time.sleep(1)
+        print("...")
+        time.sleep(3)
+        print("You're standing under a lamp overhead, the only source of light...")
+        time.sleep(2)
+        print(f"\"Welcome, {newUser}!\" a hissy voice greets you.")
+        time.sleep(2)
+        print("A large serpent with golden eyes and shiny scales slowly slithers into view.")
+        time.sleep(1)
         while True:
-            print("You're sleeping peacefully in your bed before a noise reaches you.")
-            time.sleep(2)
-            print("...")
-            time.sleep(2)
-            print("Someone clears their throat with a quick 'Ahem!'")
-            time.sleep(1)
-            print("You're awake and when you open your eyes you realise...")
-            time.sleep(1)
-            print("... you're not in your bed!")
-            time.sleep(1)
-            print("...")
-            time.sleep(3)
-            print("You're standing under a lamp overhead, the only source of light...")
-            time.sleep(2)
-            print(f"\"Welcome, {newUser}!\" a hissy voice greets you.")
-            time.sleep(2)
-            print("A large serpent with golden eyes and shiny scales slowly slithers into view.")
-            time.sleep(1)
+
             option1 = input(f"Do you run or do you prepare to fight? (run/fight)")
 
             if option1.lower().strip() == "run":
@@ -69,7 +70,31 @@ def makeCharacter(newUser):
                 print(f"Fear not, I will not harm you, {newUser}! I'm here to ask you if you're ready.")
                 print("\"I bed your pardon?\" you reply.")
 
-                print("To be continued...")
+                print("The serpent asks you.")
+                while True: 
+                        
+                    print("What are you looking forward to most at the Serpent Academy?")
+                    select1 = input("\n 1. Learning to fight \n 2. Learning magic \n 3. What are you talking about?\n 'q' to Start Over \n>")
+                        
+                    if select1 == '1' : 
+                        char_str = 10
+                        char_mgc = 5
+                        char_int = 5
+                        break
+                    elif select1 == '2' :
+                        char_str = 5
+                        char_mgc = 10
+                        char_int = 5
+                        break
+                    elif select1 == '3' :
+                        char_str = 5
+                        char_mgc = 5
+                        char_int = 10
+                        break
+                    elif select1 == 'q':
+                        print('Starting over...')
+                        break
+                    else: print("Please select by typing in a number, or type 'q' to Quit")
 
             elif option1.lower().strip() == "fight":
                 time.sleep(3)
