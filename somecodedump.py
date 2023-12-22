@@ -1,6 +1,7 @@
 import psycopg2
 import pandas as pd
 
+
 def getConn():
     #function to retrieve the password, construct
     #the connection string, make a connection and return it.
