@@ -16,24 +16,30 @@
 # if __name__ = "__main__":
 #     logging.basicConfig(filename="my_log.log")
 
+from Room import *
+
 class Player:
-    def __init__(self, username):
+    def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points, armor):
         self.username = username
-        self.str = 0
-        self.int = 0
-        self.mgc = 0
-        self.hp = 100
-        self.mp = 100
-        self.inventory = []
-        self.level = 0
-        self.points = 0
-        self.armor = []
+        self.attack = attack
+        self.defence = defence
+        self.magic = magic
+        self.hp = hp
+        self.mp = mp
+        self.inventory = inventory
+        self.level = level
+        self.points = points
+        self.armor = armor
+
+    def __str__(self):
+        return f"You are {self.username}."
 
     def listInventory(self):
         return self.inventory
     
     def whoAmI(self):
-        return self.username
+        return f"You are {self.username}. \n STATS: \n Attack ({self.attack})\n Defence ({self.defence}) \n Magic ({self.magic})\n\n You are currently Level {self.level} and have {self.points} points.\n"
+    
     
     def doCommand(self, command):
         match command:
@@ -41,9 +47,18 @@ class Player:
                 return self.listInventory()
             case "who am i":
                 return self.whoAmI()
+            # case "where am i":
+            #     return self.whereAmI()
+            case "list directions":
+                return 
         
     def getCommands(self):
         return [
             "list inventory",
-            "who am i"
+            "list directions"
+            "who am i",
+            "where am i"
         ]
+    
+
+

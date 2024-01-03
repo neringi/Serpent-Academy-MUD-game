@@ -4,10 +4,6 @@ import time
 
 from adhoc import *
 
-
-
-
-
 # def display(story, time):
 #     for s in story:
 #         print(s)

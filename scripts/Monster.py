@@ -1,0 +1,17 @@
+
+class Monster:
+    def __init__(self,name,description, attack, defence, magic, hp, mp,level, points):
+        self.name = name
+        self.description = description
+        self.attack = attack
+        self.defence = defence
+        self.magic = magic
+        self.hp = hp
+        self.mp = mp
+        self.level = level
+        self.points = points
+
+    def __str__(self):
+        return f"{self.name}. {self.description}.\n STATS: STR {self.attack} \n INT {self.defence} MGC {self.magic}.\n"
+    
+
