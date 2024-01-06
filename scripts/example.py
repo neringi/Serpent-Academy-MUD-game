@@ -53,6 +53,9 @@ def updateState(action):
                 display(gs.unequipAll())
             elif tokens[1] is not None:
                 display(gs.unequipItem(tokens[1]))
+        case "explore":
+            if "room" in tokens[1]:
+                display(gs.location.doCommand(action))
 
 while True:
     # print_slow(f"You are in {gs.location.name}")

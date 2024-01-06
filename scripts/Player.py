@@ -41,7 +41,9 @@ class Player:
     def whoAmI(self):
         return f"You are {self.username}. \n STATS: \n Attack ({self.attack})\n Defence ({self.defence}) \n Magic ({self.magic})\n\n You are currently Level {self.level} and have {self.points} points.\n"
     
-    
+    def earnPoints(self, points):
+        self.points += points
+
     def doCommand(self, command):
         match command.replace(" ", ""):
             case "listinventory":
@@ -53,13 +55,5 @@ class Player:
             case "listdirections":
                 return 
         
-    def getCommands(self):
-        return [
-            "list inventory",
-            "list directions"
-            "who am i",
-            "where am i"
-        ]
-    
 
 

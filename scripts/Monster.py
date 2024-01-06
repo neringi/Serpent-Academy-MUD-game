@@ -12,6 +12,7 @@ class Monster:
         self.points = points
 
     def __str__(self):
-        return f"{self.name}. {self.description}.\n STATS: STR {self.attack} \n INT {self.defence} MGC {self.magic}.\n"
+        return f"\033[1;31;40m{self.name}\033[0;37;40m. {self.description}.\n STATS: STR {self.attack} \n INT {self.defence} MGC {self.magic}.\n"
+    
     
 

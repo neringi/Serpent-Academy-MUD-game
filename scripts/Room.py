@@ -18,13 +18,15 @@ class Room:
         return result  
     
     def exploreRoom(self):
-        print_slow(self)
-        if self.items is not None:
-            print_slow(f"You can see items in the room: {self.items}.")
-        if self.npc is not None:
-            print_slow(f"There are friendly faces in the room. You could try talking to them. \n {self.npc}")
-        if self.monster is not None:
-            print_slow(f"There are monsters in the room! Prepare your weapon and attack! \n {self.monster}")    
+        if len(self.items) > 0:
+            itemlist = ','.join(self.items)
+            print_slow(f"You can see some items laying about: {itemlist}.\n") 
+        if len(self.npc) > 0:
+            npclist = ','.join(self.npc)
+            print_slow(f"There are friendly faces in the room: {npclist}. You could try talking to them. \n")
+        if len(self.monster) > 0:
+            monsterlist = ','.join(self.monster)
+            print_slow(f"There are monsters in the room: {monsterlist}. Prepare your weapon and attack! \n")    
     
     
     def listItems(self):
@@ -35,7 +37,7 @@ class Room:
             print_slow(f"You cannot see any items in the area.")
 
     def whereAmI(self):
-        return f"You are in {self.name}. {self.description} \n You may go: {list(self.directions.keys())}. \n"
+        return f"You are in {self.name}.\n {self.description} \nYou may go: {list(self.directions.keys())}. \n"
     
     def doCommand(self, command):
         match command.replace(" ", ""):
@@ -45,3 +47,5 @@ class Room:
                 return self.listItems()
             case "exploreroom":
                 return self.exploreRoom()
+            case "whereami":
+                return self.whereAmI()
