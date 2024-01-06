@@ -19,7 +19,7 @@
 from Room import *
 
 class Player:
-    def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points, armor):
+    def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points,preferredhand, otherhand):
         self.username = username
         self.attack = attack
         self.defence = defence
@@ -29,7 +29,8 @@ class Player:
         self.inventory = inventory
         self.level = level
         self.points = points
-        self.armor = armor
+        self.preferredhand = preferredhand
+        self.otherhand = otherhand
 
     def __str__(self):
         return f"You are {self.username}."
@@ -42,14 +43,14 @@ class Player:
     
     
     def doCommand(self, command):
-        match command:
-            case "list inventory":
+        match command.replace(" ", ""):
+            case "listinventory":
                 return self.listInventory()
-            case "who am i":
+            case "whoami":
                 return self.whoAmI()
             # case "where am i":
             #     return self.whereAmI()
-            case "list directions":
+            case "listdirections":
                 return 
         
     def getCommands(self):
