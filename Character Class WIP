@@ -1,13 +1,17 @@
 import time
 import json
+from collections import Counter
+
 
 def character_choices(new_user):
     try:
         while True:
             print("Let me get you up to speed here...")
             time.sleep(2)
-            print(" I am Sigrid, the mascot of Serpent Academy, the school \n"
-                  "that you will be attending soon")
+            print(
+                " I am Sigrid, the mascot of Serpent Academy, the school \n"
+                "that you will be attending soon"
+            )
             print(f"So {new_user}! I have a few questions for you!")
             time.sleep(2)
 
@@ -21,90 +25,99 @@ def character_choices(new_user):
                     print(f"{key}. {value}")
 
                 while True:
-                    users_choices = input("Enter your choice here:  ").strip().upper()
-                    if users_choices in options:
+                    users_input = input("Enter your choice here:  ").strip().upper()
+                    if users_input in options:
                         break
                     else:
                         print("Please choose a valid option")
-                return users_choices
+                return users_input
 
             def answers_chosen():
-                users_choices = {}
 
                 for question_key, question_info in questions_and_choices.items():
-                    question_text = question_info['question']
-                    options = question_info['options']
+                    question_text = question_info["question"]
+                    options = question_info["options"]
                     key_str = str(question_key)
                     users_choices[key_str] = answers_chosen(question_text, options)
-
                 return users_choices
 
-            #questions
+            # questions
             print(f"Okay so {new_user} your first question")
             time.sleep(1)
             print("If you could have a magical creature as a pet...")
             time.sleep(1)
             print("Would you have a Dragon, a Unicorn or a Pixie?")
 
-            choice1 = user_input("Enter your choice here: ", {'A': 'Dragon', 'B': 'Unicorn', 'C': 'Pixie'})
-            valid_choice = {'A', 'B', 'C'}
+            choice1 = user_input(
+                "Enter your choice here: ",
+                {"A": "Dragon", "B": "Unicorn", "C": "Pixie"},
+            )
+            valid_choice = {"A", "B", "C"}
 
             if choice1 in valid_choice:
-                if choice1 == 'A':
+                if choice1 == "A":
                     time.sleep(2)
                     print("Great choice! Dragons are fierce")
 
-                elif choice1 == 'B':
+                elif choice1 == "B":
                     time.sleep(2)
                     print("Enchanting! Good choice!")
 
-                elif choice1 == 'C':
+                elif choice1 == "C":
                     time.sleep(2)
                     print("I see! Pixies are mischievous")
-
 
             print("Your second question!")
             time.sleep(1)
             print("Which would be your preferred mode of transport?")
 
-            choice2 = user_input("Enter your choice here: ", {'A': 'Truck', 'B': 'Broom', 'C': 'On Foot'})
-            valid_choice = {'A', 'B', 'C'}
+            choice2 = user_input(
+                "Enter your choice here: ", {"A": "Truck", "B": "Broom", "C": "On Foot"}
+            )
+            valid_choice = {"A", "B", "C"}
 
             if choice2 in valid_choice:
-                if choice2 == 'A':
+                if choice2 == "A":
                     time.sleep(2)
                     print("A truck! ready for combat")
 
-                elif choice2 == 'B':
+                elif choice2 == "B":
                     time.sleep(2)
                     print("A broom! are you a witch?")
 
-                elif choice2 == 'C':
+                elif choice2 == "C":
                     time.sleep(2)
                     print("On foot! Sounds like a swift getaway")
 
-                print(f"Intriguing answers so far {new_user} "
-                      f" im starting to understand your personality ")
+                print(
+                    f"Intriguing answers so far {new_user} "
+                    f" im starting to understand your personality "
+                )
 
                 print("Question three!")
                 time.sleep(1)
                 print("This question may sound strange, but all will be revealed soon")
                 time.sleep(1)
-                print("In combat, would you use your might, your wits or bewitch your opponent?")
+                print(
+                    "In combat, would you use your might, your wits or bewitch your opponent?"
+                )
 
-                choice3 = user_input("Enter your choice here: ", {'A': 'Might', 'B': 'Bewitch', 'C': 'Wits'})
-                valid_choice = {'A', 'B', 'C'}
+                choice3 = user_input(
+                    "Enter your choice here: ",
+                    {"A": "Might", "B": "Bewitch", "C": "Wits"},
+                )
+                valid_choice = {"A", "B", "C"}
 
                 if choice3 in valid_choice:
-                    if choice3 == 'A':
+                    if choice3 == "A":
                         time.sleep(2)
                         print("You're a strong one I see")
 
-                    elif choice3 == 'B':
+                    elif choice3 == "B":
                         time.sleep(2)
                         print("Do you know already know Tumbledore?")
 
-                    elif choice3 == 'C':
+                    elif choice3 == "C":
                         time.sleep(2)
                         print("The mind is a powerful thing")
 
@@ -112,9 +125,27 @@ def character_choices(new_user):
                 time.sleep(1)
                 print("This one will be the true determinant!")
                 time.sleep(1)
-                print("What is your favourite food?")
-                choice4 = input("Enter your choice here: " ) #This is just a fun question - the first three determine the class
+                print("Do you enjoy Fantasy, Mystery or Romance films/books the most?")
 
+                choice4 = user_input(
+                    "Enter your choice here: ",
+                    {"A": "Mystery", "B": "Romance", "C": "Fantasy"},
+                )
+                valid_choice = {"A", "B", "C"}
+
+                if choice4 in valid_choice:
+                    if choice4 == "A":
+                        time.sleep(2)
+                        print("Mysterious!")
+
+                    elif choice4 == "B":
+                        time.sleep(2)
+                        print("How romantic!")
+
+                    elif choice4 == "C":
+                        time.sleep(2)
+                        print("Fantastic!")
+                time.sleep(2)
                 break
 
     except KeyboardInterrupt:
@@ -122,37 +153,42 @@ def character_choices(new_user):
 
 
 questions_and_choices = {
-    'question1' : {
-        'question': "If you could have a magical creature as a pet...",
-        'options': {'A': 'Dragon', 'B': 'Unicorn', 'C': 'Pixie'}
+    "question1": {
+        "question": "If you could have a magical creature as a pet...",
+        "options": {"A": "Dragon", "B": "Unicorn", "C": "Pixie"},
     },
-
-    'question2': {
-        'question': "Which would be your preferred mode of transport?",
-        'options': {'A': 'Truck', 'B': 'Broom', 'C': 'On Foot'}
+    "question2": {
+        "question": "Which would be your preferred mode of transport?",
+        "options": {"A": "Truck", "B": "Broom", "C": "On Foot"},
     },
-    'question3': {
-        'question': "In combat, would you use your might, your wits or bewitch your opponent?",
-        'options': {'A': 'Might', 'B': 'Wits', 'C': 'Bewitch'}
-    }
+    "question3": {
+        "question": "In combat, would you use your might, your wits or bewitch your opponent?",
+        "options": {"A": "Might", "B": "Wits", "C": "Bewitch"},
+    },
+    "question4": {
+        "question": "Do you enjoy Fantasy, Mystery or Romance films/books the most?",
+        "options": {"A": "Mystery", "B": "Romance", "C": "Fantasy"},
+    },
 }
 
 character_choices("new_user")
 
-filename = 'player_choices.json'
+filename = "player_choices.json"
 
-#writes to file - throws error if already created for player
-def save_choices(choices, filename='player_choices.json'):
+
+# writes to file - throws error if already created for player
+def save_choices(choices, filename="player_choices.json"):
     try:
-        with open('player_choices.json', 'w') as file:
+        with open("player_choices.json", "w") as file:
             json.dump(choices, file)
     except FileExistsError:
         pass
 
-#loads file with choices - throws error if not found
-def load_choices(filename='player_choices.json'):
+
+# loads file with choices - throws error if not found
+def load_choices(filename="player_choices.json"):
     try:
-        with open(filename, 'r') as file:
+        with open(filename, "r") as file:
             loaded_choices = json.load(file)
             return loaded_choices
     except FileNotFoundError:
@@ -162,7 +198,57 @@ def load_choices(filename='player_choices.json'):
 save_choices(questions_and_choices)
 
 player_class = {
-    ('Dragon', 'Truck', 'Might'): 'Warrior',
-        ('Unicorn', 'Broom', 'Bewitch'): 'Mage',
-        ('Pixie', 'On Foot', 'Wits'): 'Trickster'
+    ("Dragon", "Truck", "Might", "Mystery"): "Warrior",
+    ("Unicorn", "Broom", "Bewitch", "Romance"): "Mage",
+    ("Pixie", "On Foot", "Wits", "Fantasy"): "Trickster",
 }
+
+loaded_choices = {
+    "question1": {
+        # "choices": ["Dragon", "Unicorn", "Pixie"],
+        "selected": {"A": "Dragon", "B": "Unicorn", "C": "Pixie"},
+    },
+    "question2": {
+        # "choices": ["Truck", "Broom", "On Foot"],
+        "selected": {"A": "Truck", "B": "Broom", "C": "On Foot"},
+    },
+    "question3": {
+        # "choices": ["Might", "Bewitch", "Wits"],
+        "selected": {"A": "Might", "B": "Bewitch", "C": "Wits"},
+    },
+    "question4": {
+        # "choices": ["Mystery", "Romance", "Fantasy"],
+        "selected": {"A": "Mystery", "B": "Romance", "C": "Fantasy"},
+    }
+}
+
+
+def assign_class(loaded_choices):
+    # string = 'hi'
+    # print(string)
+
+    char_freq = {}
+
+    for question_key, question_info in loaded_choices.items():
+        choices_selected = question_info["selected"]
+        for choice in choices_selected.values():
+            if choice in char_freq:
+                char_freq[choice] += 1
+            else:
+                char_freq[choice] = 1
+
+    # for i in users_choices:
+    # if i in char_freq:
+    # char_freq[i]=char_freq[i]+1
+    # else:
+    # char_freq[i] = 1
+
+    result = max(char_freq, key=char_freq.get)
+
+    print("debug - most freq character:", result)
+    return result
+
+
+player_class = assign_class(loaded_choices)
+
+# print(f"You are a {result}!")
