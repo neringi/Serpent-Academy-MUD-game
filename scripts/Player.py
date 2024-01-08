@@ -17,7 +17,8 @@
 #     logging.basicConfig(filename="my_log.log")
 
 from Room import *
-
+import random
+import math
 class Player:
     def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points,preferredhand, otherhand):
         self.username = username
@@ -43,6 +44,31 @@ class Player:
     
     def earnPoints(self, points):
         self.points += points
+        self.levelUp()
+
+    def levelUp(self):
+        newlvl = math.floor(self.points / 10) + 1
+        # print(newlvl)
+        diff = newlvl - self.level + 1
+        # print(diff)
+        if diff > 0:
+            for i in range(1,diff):
+                # print(i)
+                pickrand = random.randint(1,3)
+                # print(f"random number is {pickrand}")
+                if pickrand == 1:
+                    self.attack += 1
+                    # print("Your Attack has increased!")
+                if pickrand == 2:
+                    self.defence += 1
+                    # print("Your Defence has increased!")
+                if pickrand == 3:
+                    self.magic += 1
+                    # print("Your Magic has increased!")
+        
+        self.level = newlvl
+        print(f"Congratulations! You have leveled up. \n Your Level is {self.level}!")
+            
 
     def doCommand(self, command):
         match command.replace(" ", ""):
@@ -50,10 +76,6 @@ class Player:
                 return self.listInventory()
             case "whoami":
                 return self.whoAmI()
-            # case "where am i":
-            #     return self.whereAmI()
-            case "listdirections":
-                return 
         
 
 
