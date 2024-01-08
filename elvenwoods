@@ -1,0 +1,121 @@
+import time
+
+player = ""
+
+
+class ElvenWoods:
+    def __init__(self):
+        self.directions = ["R", "L"]
+        self.choice = ["Yes", "No"]
+        self.weapon = True
+
+    def enter_woods(self):
+        print("You look around at the expansive trees surrounding you")
+        time.sleep(2)
+        print("Morning dew has settled on the leaves")
+        time.sleep(2)
+        print("There is a faint path that leads deeper into the woods")
+        time.sleep(2)
+        print("Where would you like to go?")
+
+    def travel(self):
+        userinput = ""
+        while userinput not in self.directions:
+            userinput = input("Please choose: right(R),left(L)")
+        if userinput == "R":
+            print("You choose to go right up the path")
+            time.sleep(2)
+            print("The woodland spirits dance around you before dispersing")
+            time.sleep(2)
+            print("")
+            time.sleep(2)
+            print("")
+            encounter_enemy()
+
+        elif userinput == "L":
+            print("You choose to continue walking to the left")
+            time.sleep(2)
+            print("The tree branches bend to form an alcove as you walk through")
+            time.sleep(2)
+            print("Looking into the distance there is a large mossy figure up ahead ")
+            time.sleep(2)
+            print("You approach with caution")
+            encounter_guardian()
+            challenge()
+        else:
+            return "please enter a valid direction"
+
+
+def encounter_enemy():
+    print("As you are walking through the trees you hear rustling behind you")
+    time.sleep(2)
+    print("You turn around slowly and cautiously")
+    time.sleep(2)
+    print("You can see a Goblin hiding behind a bush")
+    time.sleep(2)
+    print("As you near the bush the Goblin jumps out!")
+    time.sleep(2)
+    print("Prepare for battle!")
+    # insert enemy class thing
+
+
+def encounter_guardian():
+    print("At the heart of the woods you encounter a mysterious figure")
+    time.sleep(2)
+    print("The figure stands up and you realise that it is the guardian of the Elven Woods")
+    time.sleep(2)
+    print("The guardian introduces themselves as Gaianthra and requests that you to accept their challenge")
+    time.sleep(2)
+
+
+def challenge():
+    choice = input("Do you accept the challenge? (Yes/No): ").lower()
+    max_repeats = 3
+    repeat_counter = 0
+
+    if choice == 'yes':
+        print("The guardian nods and says very well")
+    # insert guardian class thing
+    elif choice == 'no' and repeat_counter < max_repeats:
+        print("There will be consequences")
+        repeat_counter += 1
+        time.sleep(2)
+        print("Are you sure?")
+
+        users_input = input("Yes or No?: ").lower()
+        time.sleep(2)
+
+        if users_input == "yes":
+            repeat_counter += 1
+            print("Are you REALLY sure?")
+            time.sleep(2)
+            users_input = input("Yes or No?: ").lower()
+
+        if users_input == "yes":
+            repeat_counter += 1
+            print("Okay...")
+            time.sleep(2)
+
+    if repeat_counter == max_repeats:
+        print("Your vision blurs")
+        time.sleep(2)
+        print("You wake up in the courtyard")
+    else:
+        print("You decided to take on the challenge")
+
+
+def main():
+    woods = ElvenWoods()
+    woods.enter_woods()
+    woods.travel()
+
+
+    # encounter_enemy(player)
+
+
+# encounter_guardian()
+#  challenge()
+
+
+if __name__ == "__main__":
+    main()
