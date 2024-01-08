@@ -1,4 +1,5 @@
 import json
+import os.path
 class GameState:
     def __str__(self):
         return f""
@@ -211,6 +212,22 @@ class GameState:
                     return f"You attacked {monster.name} for {playerattack} HP. \nThe {monster.name} attacked you for {monsterattack} HP. \n You have {self.player.hp} HP left.\n"
         else:
             return f"{key} is not in this room."
+        
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, 
             sort_keys=True, indent=4)
+    
+    def saveGame(self):
+        dirname = os.path.dirname(os.path.dirname(__file__))
+        # print(dirname)
+        savefilepath = dirname + '/resources/savefile.json'
+        # print(savefilepath)
+
+        file_exists = os.path.isfile(savefilepath)
+        if file_exists:
+            with open(savefilepath, 'w', encoding='utf-8') as f: 
+                f.write(self.toJSON())
+            
+            return f"Your game has been saved, {self.player.username}!"
+        else:
+            print("Something went wrong. Could not save game, try again")

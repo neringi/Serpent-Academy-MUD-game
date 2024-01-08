@@ -56,6 +56,8 @@ def updateState(action):
         case "explore":
             if "room" in tokens[1]:
                 display(gs.location.doCommand(action))
+        case "save":
+            display(gs.saveGame())
 
 while True:
     # print_slow(f"You are in {gs.location.name}")

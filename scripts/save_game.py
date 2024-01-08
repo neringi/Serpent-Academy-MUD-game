@@ -16,18 +16,11 @@ def saveGame():
     # print(player.get_dict())
     if file_exists:
         with open(savefilepath, 'w', encoding='utf-8') as f: 
-            # players_json = f.read()
-
-            # players = json.loads(players_json)
-            # players.append(player.get_dict())
-
-        # with open(savefilepath, 'w', encoding='utf-8') as f:
             f.write(gs.toJSON())
     else:
-        with open(savefilepath, 'w', encoding='utf-8') as f: 
-            json.dump({}, f, ensure_ascii=False, indent=4)
+        print("Something went wrong. Could not save game, try again")
 
 
-saveGame()
+# saveGame()
 
     

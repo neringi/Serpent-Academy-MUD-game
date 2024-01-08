@@ -56,30 +56,6 @@
                 "mp": 0,
                 "name": "Training Dummy",
                 "points": 10
-            },
-            "training dummy2": {
-                "attack": 0,
-                "defence": 0,
-                "description": "A training dummy used by students while learning to fight.",
-                "hp": 10,
-                "items": {},
-                "level": 1,
-                "magic": 0,
-                "mp": 0,
-                "name": "Training Dummy",
-                "points": 10
-            },
-            "training dummy3": {
-                "attack": 0,
-                "defence": 0,
-                "description": "A training dummy used by students while learning to fight.",
-                "hp": 10,
-                "items": {},
-                "level": 1,
-                "magic": 0,
-                "mp": 0,
-                "name": "Training Dummy",
-                "points": 10
             }
         },
         "name": "The Training Room",
@@ -274,30 +250,6 @@
             },
             "monster": {
                 "training dummy": {
-                    "attack": 0,
-                    "defence": 0,
-                    "description": "A training dummy used by students while learning to fight.",
-                    "hp": 10,
-                    "items": {},
-                    "level": 1,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Training Dummy",
-                    "points": 10
-                },
-                "training dummy2": {
-                    "attack": 0,
-                    "defence": 0,
-                    "description": "A training dummy used by students while learning to fight.",
-                    "hp": 10,
-                    "items": {},
-                    "level": 1,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Training Dummy",
-                    "points": 10
-                },
-                "training dummy3": {
                     "attack": 0,
                     "defence": 0,
                     "description": "A training dummy used by students while learning to fight.",
