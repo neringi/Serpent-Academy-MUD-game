@@ -1,5 +1,7 @@
 from adhoc import *
+import json
 class Room:
+
     def __init__(self,name,description, directions = {}, items = {}, npc = {}, monster = {}):
         self.name = name
         self.description = description

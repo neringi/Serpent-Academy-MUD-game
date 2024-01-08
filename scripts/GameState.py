@@ -2,12 +2,15 @@ import json
 class GameState:
     def __str__(self):
         return f""
-
+    
+    def getRoom(self, name):
+        return self.rooms[name]
+    
     def updateLocation(self, location):
         if location not in self.location.directions.keys():
             self.location.listDirections()
             return "Not a valid direction"
-        self.location = self.location.directions[location]
+        self.location = self.getRoom(self.location.directions[location])
         return self.location.description
     
     def currentLocation(self):
@@ -208,3 +211,6 @@ class GameState:
                     return f"You attacked {monster.name} for {playerattack} HP. \nThe {monster.name} attacked you for {monsterattack} HP. \n You have {self.player.hp} HP left.\n"
         else:
             return f"{key} is not in this room."
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
