@@ -59,15 +59,18 @@ def updateState(action):
         case "save":
             display(gs.saveGame())
 
-while True:
-    # print_slow(f"You are in {gs.location.name}")
-    userInput = input("\nYour Move:")
-    userInput = userInput.lower()
-    if userInput.strip() == "":
-        print_slow("You have to do something! \nType 'HELP' to see a list of actions you can take!")
-    else:
-        if userInput in ("left", "right","up", "down"):
-            print_slow("If you want to travel, use keyword 'MOVE' before choosing a direction")
-            # validate input 
-            # is a valid command, is an actionable verb, is composed of verb + noun
-        updateState(userInput)
+def userMoves():
+    while True:
+        # print_slow(f"You are in {gs.location.name}")
+        userInput = input("\nYour Move:")
+        userInput = userInput.lower()
+        if userInput.strip() == "":
+            print_slow("You have to do something! \nType 'HELP' to see a list of actions you can take!")
+        else:
+            if userInput in ("left", "right","up", "down"):
+                print_slow("If you want to travel, use keyword 'MOVE' before choosing a direction")
+                # validate input 
+                # is a valid command, is an actionable verb, is composed of verb + noun
+            updateState(userInput)
+
+userMoves()

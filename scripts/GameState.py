@@ -220,14 +220,14 @@ class GameState:
     def saveGame(self):
         dirname = os.path.dirname(os.path.dirname(__file__))
         # print(dirname)
-        savefilepath = dirname + '/resources/savefile.json'
-        # print(savefilepath)
+        savefilepath = dirname + '/resources/' + self.player.username +'.json'
+        print(savefilepath)
 
-        file_exists = os.path.isfile(savefilepath)
-        if file_exists:
-            with open(savefilepath, 'w', encoding='utf-8') as f: 
-                f.write(self.toJSON())
+        # file_exists = os.path.isfile(savefilepath)
+        # if file_exists:
+        with open(savefilepath, 'w', encoding='utf-8') as f: 
+            f.write(self.toJSON())
             
-            return f"Your game has been saved, {self.player.username}!"
-        else:
-            print("Something went wrong. Could not save game, try again")
+        return f"Your game has been saved, {self.player.username}!"
+        # else:
+        #     print("Something went wrong. Could not save game, try again")

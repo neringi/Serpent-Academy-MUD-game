@@ -5,6 +5,35 @@ from Item import Item
 from Monster import Monster
 from Equipment import Equipment
 
+import json
+
+def loadGame():
+    user = input("What is your username?").lower().strip()
+    dirname = os.path.dirname(os.path.dirname(__file__))
+    # print(dirname)
+    usersavepath = dirname + '/resources/' + user +'.json'
+    print(usersavepath)
+
+        # file_exists = os.path.isfile(savefilepath)
+        # if file_exists:
+
+
+# load_game = True
+# loaded_game = {}
+# rooms = {}
+# if load_game:
+#     for key, room in loaded_game:
+#         items = {}
+#         monsters = {}
+#         for itemkey, item in room.items:
+#             items[itemkey] = Item(**item) 
+#         for monsterkey, monster in room.monster:
+#             monsters[monsterkey] = Monster(**monster)
+#         rooms[key] = Room(**room)
+#         rooms[key].items = items
+#         rooms[key].monster = monsters
+# else:
+
 # Define valid directions to move
 VALID_MOVES = ["left", "right", "up", "down"]
 
@@ -21,21 +50,6 @@ goblin = Monster("Goblin","A three foot grotesque fairy with razor sharp teeth, 
 imp = Monster("Imp","Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",15,10,10,20,20,3,20)
 
 # Define Rooms and their relationships
-# load_game = True
-# loaded_game = {}
-# rooms = {}
-# if load_game:
-#     for key, room in loaded_game:
-#         items = {}
-#         monsters = {}
-#         for itemkey, item in room.items:
-#             items[itemkey] = Item(**item) 
-#         for monsterkey, monster in room.monster:
-#             monsters[monsterkey] = Monster(**monster)
-#         rooms[key] = Room(**room)
-#         rooms[key].items = items
-#         rooms[key].monster = monsters
-# else:
 trainingroom = Room("The Training Room","This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.")
 advtrainingroom = Room("Advanced Training Room","This is the advanced training room. You should not stick around here unless you know how to fight!") 
 courtyard = Room("The Courtyard","The expansive courtyard boasts a myriad of sculptures and beautiful architecture. You can see students and teachers milling around.")
@@ -101,7 +115,7 @@ meadow.monster = {"imp": imp}
 player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
 
 # Define Equipment
-equipment = Equipment(dominanthand = None, righthand = None)
+equipment = Equipment(dominanthand = None, nondominanthand = None)
 # player.equipment = equipment
 # Initialise gamestate
 gs = GameState()

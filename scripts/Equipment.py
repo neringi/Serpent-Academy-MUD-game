@@ -1,11 +1,11 @@
 
 
 class Equipment:
-    def __init__(self, dominanthand = None, righthand = None):
+    def __init__(self, dominanthand = None, nondominanthand = None):
         self.dominanthand = dominanthand
-        self.nondominanthand = righthand
+        self.nondominanthand = nondominanthand
     
     def __str__(self):
-        return f"Your EQUIPMENT: \n Left Hand: {self.dominanthand}. \n Right Hand: {self.nondominanthand}.\n"
+        return f"Your EQUIPMENT: \n Dominant Hand: {self.dominanthand}. \n Non Dominant Hand: {self.nondominanthand}.\n"
     
    

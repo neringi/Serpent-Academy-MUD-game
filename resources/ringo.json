@@ -19,27 +19,14 @@
             "right": "trainingroom"
         },
         "items": {},
-        "monster": {
-            "goblin": {
-                "attack": 15,
-                "defence": 5,
-                "description": "A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",
-                "hp": 15,
-                "items": {},
-                "level": 2,
-                "magic": 0,
-                "mp": 0,
-                "name": "Goblin",
-                "points": 25
-            }
-        },
+        "monster": {},
         "name": "Advanced Training Room",
         "npc": {}
     },
     "player": {
         "attack": 12,
-        "defence": 11,
-        "hp": 100,
+        "defence": 10,
+        "hp": 90,
         "inventory": [
             {
                 "attack": 0,
@@ -53,11 +40,11 @@
                 "wieldable": true
             }
         ],
-        "level": 2,
-        "magic": 10,
+        "level": 3,
+        "magic": 12,
         "mp": 100,
         "otherhand": "right",
-        "points": 10,
+        "points": 25,
         "preferredhand": "left",
         "username": "ringo"
     },
@@ -68,20 +55,7 @@
                 "right": "trainingroom"
             },
             "items": {},
-            "monster": {
-                "goblin": {
-                    "attack": 15,
-                    "defence": 5,
-                    "description": "A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",
-                    "hp": 15,
-                    "items": {},
-                    "level": 2,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Goblin",
-                    "points": 25
-                }
-            },
+            "monster": {},
             "name": "Advanced Training Room",
             "npc": {}
         },
@@ -212,7 +186,20 @@
                     "wieldable": true
                 }
             },
-            "monster": {},
+            "monster": {
+                "training dummy": {
+                    "attack": 0,
+                    "defence": 0,
+                    "description": "A training dummy used by students while learning to fight.",
+                    "hp": 10,
+                    "items": {},
+                    "level": 1,
+                    "magic": 0,
+                    "mp": 0,
+                    "name": "Training Dummy",
+                    "points": 10
+                }
+            },
             "name": "The Training Room",
             "npc": {}
         }
