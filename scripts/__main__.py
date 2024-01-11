@@ -1,7 +1,6 @@
 from create_user import * 
-# from resources.ascii.castle import *
 import time
-from init import *
+from init import initialGame
 from adhoc import *
 from save_game import loadGame
 
@@ -12,12 +11,9 @@ from Item import Item
 from Monster import Monster
 from Equipment import Equipment
 
-# def display(story, time):
-#     for s in story:
-#         print(s)
-#         time.sleep(time)
+gs = initialGame()
 
-
+VALID_MOVES = ["left", "right", "up", "down"]
 
 def display(info):
     if type(info) is not str:
@@ -48,13 +44,15 @@ def updateState(action):
         case "take":
             display(gs.takeItem(tokens[1]))
         case "list":
-            if "inventory" in tokens[1]:
+            if len(tokens) == 1:
+                print_slow("What are you trying to list?\n Type \033[1;32;40m'LIST'\033[0;37;48m followed by \033[1;32;40mINVENTORY / EQUIPMENT / ITEMS / DIRECTIONS\033[0;37;48m.")
+            elif "inventory" in tokens[1]:
                 display(gs.player.listInventory())
-            if "equipment" in tokens[1]:
+            elif "equipment" in tokens[1]:
                 display(gs.listEquipment())
-            if "items" in tokens[1]:
+            elif "items" in tokens[1]:
                 display(gs.location.doCommand(action))
-            if "directions" in tokens[1]:
+            elif "directions" in tokens[1]:
                 display(gs.listDirections())
         case "attack":
             display(gs.attack(tokens[1]))
@@ -64,13 +62,15 @@ def updateState(action):
             display(gs.equipItem(tokens[1]))
         case "unequip":
             if len(tokens) == 1:
-                print_slow("What are you trying to unequip?\n Type 'UNEQUIP X' to unequip X item \n Type 'UNEQUIP ALL' to unequip everything.")
+                print_slow("What are you trying to unequip?\n Type \033[1;32;40m'UNEQUIP X'\033[0;37;48m to unequip X item \n Type \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m to unequip everything.")
             elif "all" == tokens[1]:
                 display(gs.unequipAll())
             elif tokens[1] is not None:
                 display(gs.unequipItem(tokens[1]))
         case "explore":
-            if "room" in tokens[1]:
+            if len(tokens) == 1:
+                print_slow("Type \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m to explore the area.")
+            elif "room":
                 display(gs.location.doCommand(action))
         case "save":
             # Saves game to resources folder as a JSON
@@ -81,6 +81,11 @@ def updateState(action):
             if quit.lower().strip() == "y":
                 clear()
                 return True
+        case "use":
+            if len(tokens) == 1:
+                print_slow("What are you trying to use? Type \033[1;32;40m''USE'\033[0;37;48m followed by the name of the item.\n")
+            elif len(tokens) > 1:
+                display(gs.useItem(tokens[1]))
 
 
 
@@ -158,7 +163,9 @@ if reply == "y":
         option = input("\n>")
         if str(option.strip()) == '1':
             player = createNewUser()
+            gs = initialGame()
             gs.player = player
+            
             userMoves()
             
         elif str(option.strip()) == '2':

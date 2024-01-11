@@ -4,65 +4,75 @@
         "nondominanthand": null
     },
     "location": {
-        "description": "This is the advanced training room. You should not stick around here unless you know how to fight!",
+        "description": "This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.",
         "directions": {
-            "right": "trainingroom"
+            "left": "advtrainingroom",
+            "right": "courtyard"
         },
-        "items": {},
-        "monster": {
-            "goblin": {
-                "attack": 15,
-                "defence": 5,
-                "description": "A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",
-                "hp": 15,
-                "items": {},
-                "level": 2,
+        "items": {
+            "training shield": {
+                "attack": 0,
+                "defence": 2,
+                "description": "A wooden kite shield used by students while training.",
+                "hp": 0,
+                "itemtype": "shield",
                 "magic": 0,
-                "mp": 0,
-                "name": "Goblin",
-                "points": 25
+                "name": "Training Shield",
+                "value": 10,
+                "wieldable": true
+            },
+            "training sword": {
+                "attack": 2,
+                "defence": 0,
+                "description": "A wooden sword used by students while training.",
+                "hp": 0,
+                "itemtype": "melee",
+                "magic": 0,
+                "name": "Training Sword",
+                "value": 10,
+                "wieldable": true
+            },
+            "wooden stick": {
+                "attack": 1,
+                "defence": 1,
+                "description": "A wooden stick that's about as long as your arm. Not a very useful weapon.",
+                "hp": 0,
+                "itemtype": "melee",
+                "magic": 0,
+                "name": "Wooden Stick",
+                "value": 0,
+                "wieldable": true
             }
         },
-        "name": "Advanced Training Room",
+        "monster": {
+            "training dummy": {
+                "attack": 0,
+                "defence": 0,
+                "description": "A training dummy used by students while learning to fight.",
+                "hp": 10,
+                "items": {},
+                "level": 1,
+                "magic": 0,
+                "mp": 0,
+                "name": "Training Dummy",
+                "points": 10
+            }
+        },
+        "name": "The Training Room",
         "npc": {}
     },
     "player": {
         "attack": 10,
-        "defence": 10,
+        "defence": 5,
         "hp": 100,
-        "inventory": [
-            {
-                "attack": 0,
-                "defence": 2,
-                "description": "A wooden kite shield used by students while training.",
-                "hp": 0,
-                "itemtype": "shield",
-                "magic": 0,
-                "name": "Training Shield",
-                "value": 10,
-                "wieldable": true
-            }
-        ],
-        "items": [
-            {
-                "attack": 0,
-                "defence": 2,
-                "description": "A wooden kite shield used by students while training.",
-                "hp": 0,
-                "itemtype": "shield",
-                "magic": 0,
-                "name": "Training Shield",
-                "value": 10,
-                "wieldable": true
-            }
-        ],
+        "inventory": [],
         "level": 1,
-        "magic": 10,
+        "magic": 5,
         "mp": 100,
         "otherhand": "right",
         "points": 0,
         "preferredhand": "left",
-        "username": "ringo"
+        "username": "test"
     },
     "rooms": {
         "advtrainingroom": {

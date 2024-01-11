@@ -6,27 +6,8 @@ from Room import Room
 from Item import Item
 from Monster import Monster
 # from example import *
-from init import gs
-
-# dirname = os.path.dirname(os.path.dirname(__file__))
-# # print(dirname)
-# savefilepath = dirname + '/resources/savefile.json'
-# # print(savefilepath)
-
-# file_exists = os.path.isfile(savefilepath)
-# # print(file_exists)
-
-# def saveGame():
-#     # print(player.get_dict())
-#     if file_exists:
-#         with open(savefilepath, 'w', encoding='utf-8') as f: 
-#             f.write(gs.toJSON())
-#     else:
-#         print("Something went wrong. Could not save game, try again")
-
-
-# saveGame()
-
+from GameState import GameState
+from adhoc import *
 
 
 def loadGame():
@@ -34,14 +15,14 @@ def loadGame():
     dirname = os.path.dirname(os.path.dirname(__file__))
     # print(dirname)
     usersavepath = dirname + '/resources/' + user +'.json'
-    print(usersavepath)
+    # print(usersavepath)
 
     file_exists = os.path.isfile(usersavepath)
     # invert if statement
     if not file_exists:
         print("Sorry, there are no save files for that username. \n Check the username is correct or create a new game!")
         raise Exception("No saved file")
-    print("File loading...")
+    print_slow("File loading...")
 
     # Opening JSON file
     # f = open(usersavepath)
@@ -52,6 +33,7 @@ def loadGame():
     # a dictionary
     # loaded_game = json.load(f)
 
+    gs = GameState()
 
     # Load Equipment
     gs.equipment = Equipment()
@@ -65,6 +47,7 @@ def loadGame():
 
     # Load Current Location
     gs.location = Room(**loaded_game["location"])
+    
     # print(gs.location)
 
     # Load Player
@@ -106,12 +89,15 @@ def loadGame():
         rooms[key].monster = monsters
         # rooms[key].npc = npcs
 
+        
+        # print(rooms[key])
+        # print(f"room is {key}")
+        # print(f"Room items are {rooms[key].items}")
+        # print(f"Room monsters are {rooms[key].monster}")
 
-        print(rooms[key])
-        print(f"room is {key}")
-        print(f"Room items are {rooms[key].items}")
-        print(f"Room monsters are {rooms[key].monster}")
+    time.sleep(2)
+    clear()
+    print_slow(f"Welcome back, {gs.player.username}! \nUse \033[1;32;40m'HELP'\033[0;37;48m option to remind you how to play. \n")
 
     return gs 
-    # Closing file
-    # f.close()       
+     
