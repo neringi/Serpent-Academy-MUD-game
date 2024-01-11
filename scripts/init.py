@@ -43,11 +43,16 @@ trainingsword = Item("Training Sword","A wooden sword used by students while tra
 trainingshield = Item("Training Shield","A wooden kite shield used by students while training.", 10, 0, 2, 0, True, "shield",0)
 stick = Item("Wooden Stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
 hppotion = Item("Common Health Potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
+thornydagger = Item("Thorny Dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee")
 
 # Define Monsters
 trainingdummy = Monster("Training Dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
 goblin = Monster("Goblin","A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",15,5,0,15,0,2,25)
 imp = Monster("Imp","Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",15,10,10,20,20,3,20)
+hydra = Monster("Hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
+gaianthra = Monster("Gaianthra", "The guardian of the Eleven Woods, a large treelike humanoid", 25,20,0,50,25,5,100)
+spectraloak = Monster("Spectral Oak", "A sentient, haunted oak tree", 10,10,0,15,5,2,15)
+
 
 # Define Rooms and their relationships
 trainingroom = Room("The Training Room","This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.")
