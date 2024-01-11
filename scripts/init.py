@@ -43,7 +43,7 @@ trainingsword = Item("Training Sword","A wooden sword used by students while tra
 trainingshield = Item("Training Shield","A wooden kite shield used by students while training.", 10, 0, 2, 0, True, "shield",0)
 stick = Item("Wooden Stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
 hppotion = Item("Common Health Potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
-thornydagger = Item("Thorny Dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee")
+thornydagger = Item("Thorny Dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee",0)
 
 # Define Monsters
 trainingdummy = Monster("Training Dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
