@@ -9,8 +9,8 @@ class GameState:
     
     def updateLocation(self, location):
         if location not in self.location.directions.keys():
-            self.location.listDirections()
-            return "Not a valid direction"
+            print(self.listDirections())
+            return "Not a valid direction!"
         self.location = self.getRoom(self.location.directions[location])
         return self.location.description
     
@@ -23,14 +23,14 @@ class GameState:
         if item is not None:
             self.player.inventory.append(item)
             self.location.items.pop(key, None) 
-            return f"You have added '{itemname}' to your inventory."
+            return f"You have added '\033[1;33;40m{itemname}\033[0;37;48m' to your inventory."
         else:
-            return f"{itemname} not found."
+            return f"\033[1;33;40m{itemname}\033[0;37;48m not found."
 
     def listEquipment(self):
         domhand = self.player.preferredhand
         nondomhand = self.player.otherhand
-        return f"You're currently equipped with: \n {domhand.upper()} HAND: '{self.equipment.dominanthand}' \n {nondomhand.upper()} HAND: '{self.equipment.nondominanthand}' \n "
+        return f"You're currently equipped with: \n {domhand.upper()} HAND: '\033[1;33;40m{self.equipment.dominanthand}\033[0;37;48m' \n {nondomhand.upper()} HAND: '\033[1;33;40m{self.equipment.nondominanthand}\033[0;37;48m' \n "
         
     def unequipAll(self):
         equippedWeapon = self.equipment.dominanthand
@@ -47,7 +47,7 @@ class GameState:
             self.player.attack -= equippedWeapon.attack
             self.player.defence -= equippedWeapon.defence
             self.player.magic -= equippedWeapon.magic
-            print(f"You've unequipped {equippedWeapon} and added it to your inventory.")
+            print(f"You've unequipped \033[1;33;40m{equippedWeapon}\033[0;37;48m and added it to your inventory.")
 
         if equippedShield is not None:
             # add equipped item back to inventory
@@ -60,7 +60,7 @@ class GameState:
             self.player.attack -= equippedShield.attack
             self.player.defence -= equippedShield.defence
             self.player.magic -= equippedShield.magic
-            print(f"You've unequipped {equippedShield} and added it to your inventory.")
+            print(f"You've unequipped \033[1;33;40m{equippedShield}\033[0;37;48m and added it to your inventory.")
 
     def unequipItem(self,itemname):
         key = itemname.lower()
@@ -70,7 +70,7 @@ class GameState:
         equippedShield = self.equipment.nondominanthand
 
         if equippedWeapon.name.lower() != key and equippedShield.name.lower() != key:
-            return f"You do not have item {itemname} equipped\n"
+            return f"You do not have item \033[1;33;40m{itemname}\033[0;37;48m equipped\n"
         elif equippedWeapon.name.lower() == key:
             # add equipped item back to inventory
             self.player.inventory.append(equippedWeapon)
@@ -95,7 +95,7 @@ class GameState:
             self.player.defence -= equippedShield.defence
             self.player.magic -= equippedShield.magic
                 
-        return(f"You've unequipped '{itemname}' and added it to your inventory.")
+        return(f"You've unequipped '\033[1;33;40m{itemname}\033[0;37;48m' and added it to your inventory.")
  
     def equipItem(self, itemname):
         key = itemname.lower()
@@ -105,7 +105,7 @@ class GameState:
         # Check if the item is in the inventory
         item = next(item for item in self.player.inventory if item.name.lower() == key)
         if item is None:
-            return f"You do not have item {itemname}\n"
+            return f"You do not have item \033[1;33;40m{itemname}\033[0;37;48m\n"
         else:
             if item.wieldable: # Check if item can be wielded
                 if item.itemtype == "melee": 
@@ -122,7 +122,7 @@ class GameState:
                         self.player.defence += item.defence
                         self.player.magic += item.magic
 
-                        return f"You have successfully wielded {item.name} in your {preferredhand} hand!"
+                        return f"You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {preferredhand} hand!"
                 
                     else: # if weapon already equipped in dominant hand
                         equippeditem = self.equipment.dominanthand
@@ -145,7 +145,7 @@ class GameState:
                         self.player.attack += item.attack
                         self.player.defence += item.defence
                         self.player.magic += item.magic
-                        return f"You previously wielded '{equippeditem}' which you put in your inventory. \n You have successfully wielded {item.name} in your {preferredhand} hand!"
+                        return f"You previously wielded '\033[1;33;40m{equippeditem}\033[0;37;48m' which you put in your inventory. \n You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {preferredhand} hand!"
                     
                 elif item.itemtype == "shield":
                     # check if player is holding anything in nondominant hand
@@ -161,7 +161,7 @@ class GameState:
                         self.player.defence += item.defence
                         self.player.magic += item.magic
 
-                        return f"You have successfully wielded {item.name} in your {otherhand} hand!"
+                        return f"You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {otherhand} hand!"
                     
                     else: # if shield already equipped in nondominant hand
                         equippeditem = self.equipment.nondominanthand
@@ -184,10 +184,10 @@ class GameState:
                         self.player.attack += item.attack
                         self.player.defence += item.defence
                         self.player.magic += item.magic
-                        return f"You previously wielded '{equippeditem}' which you put in your inventory. \n You have successfully wielded {item.name} in your {preferredhand} hand!"
+                        return f"You previously wielded '\033[1;33;40m{equippeditem}\033[0;37;48m' which you put in your inventory. \n You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {preferredhand} hand!"
                     
             else:
-                return f"Cannot equip {item.name}!\n"
+                return f"Cannot equip \033[1;33;40m{item.name}\033[0;37;48m!\n"
 
     def useItem(self, itemname):
         key = itemname.lower()
