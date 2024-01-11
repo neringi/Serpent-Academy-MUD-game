@@ -231,3 +231,11 @@ class GameState:
         return f"Your game has been saved, {self.player.username}!"
         # else:
         #     print("Something went wrong. Could not save game, try again")
+    
+    def listDirections(self):
+        result = ""
+        # print(self.location.directions.items())
+        for k, v in self.location.directions.items():
+            result += f"{k} will take you to {self.rooms[v].name}.\n"
+            # print(self.rooms[v])
+        return result

@@ -73,4 +73,3 @@ def userMoves():
                 # is a valid command, is an actionable verb, is composed of verb + noun
             updateState(userInput)
 
-userMoves()

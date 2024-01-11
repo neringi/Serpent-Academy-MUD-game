@@ -3,6 +3,14 @@ from create_user import *
 import time
 from init import *
 from adhoc import *
+from save_game import loadGame
+
+from GameState import GameState
+from Room import Room
+from Player import Player 
+from Item import Item
+from Monster import Monster
+from Equipment import Equipment
 
 # def display(story, time):
 #     for s in story:
@@ -47,7 +55,7 @@ def updateState(action):
             if "items" in tokens[1]:
                 display(gs.location.doCommand(action))
             if "directions" in tokens[1]:
-                display(gs.location.doCommand(action))
+                display(gs.listDirections())
         case "attack":
             display(gs.attack(tokens[1]))
         case "help":
@@ -65,7 +73,16 @@ def updateState(action):
             if "room" in tokens[1]:
                 display(gs.location.doCommand(action))
         case "save":
+            # Saves game to resources folder as a JSON
             display(gs.saveGame())
+        case "quit":
+            # If User wants to quit, takes them back to menu
+            quit = input("Are you sure you want to quit? Any progress that was not saved will be lost. (y/n)")
+            if quit.lower().strip() == "y":
+                clear()
+                return True
+
+
 
 
 def userMoves():
@@ -80,8 +97,9 @@ def userMoves():
                 print_slow("If you want to travel, use keyword 'MOVE' before choosing a direction")
                 # validate input 
                 # is a valid command, is an actionable verb, is composed of verb + noun
-            updateState(userInput)
-
+            shouldexit = updateState(userInput)
+            if shouldexit:
+                return
 
 
 
@@ -139,12 +157,19 @@ if reply == "y":
         print("\n 1. Create New Game \n 2. Load Game \n 3. Leaderboard \n 'q' to Quit")
         option = input("\n>")
         if str(option.strip()) == '1':
-            createNewUser()
-
+            player = createNewUser()
+            gs.player = player
+            userMoves()
             
         elif str(option.strip()) == '2':
+            clear()
             print("Let's load your game from save file.")
+            try:
+                gs = loadGame()
+            except:
+                continue
 
+            userMoves()
 
         elif str(option).strip() == '3':
             print("Leaderboard!")

@@ -63,28 +63,16 @@
     },
     "player": {
         "attack": 10,
-        "defence": 10,
+        "defence": 5,
         "hp": 100,
-        "inventory": [
-            {
-                "attack": 0,
-                "defence": 2,
-                "description": "A wooden kite shield used by students while training.",
-                "hp": 0,
-                "itemtype": "shield",
-                "magic": 0,
-                "name": "Training Shield",
-                "value": 10,
-                "wieldable": true
-            }
-        ],
+        "inventory": [],
         "level": 1,
-        "magic": 10,
+        "magic": 5,
         "mp": 100,
         "otherhand": "right",
         "points": 0,
         "preferredhand": "left",
-        "username": "ringo"
+        "username": "Jack"
     },
     "rooms": {
         "advtrainingroom": {

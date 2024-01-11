@@ -5,14 +5,14 @@ from Item import Item
 from Monster import Monster
 from Equipment import Equipment
 
-import json
 
-def loadGame():
-    user = input("What is your username?").lower().strip()
-    dirname = os.path.dirname(os.path.dirname(__file__))
-    # print(dirname)
-    usersavepath = dirname + '/resources/' + user +'.json'
-    print(usersavepath)
+
+# def loadGame():
+#     user = input("What is your username?").lower().strip()
+#     dirname = os.path.dirname(os.path.dirname(__file__))
+#     # print(dirname)
+#     usersavepath = dirname + '/resources/' + user +'.json'
+#     print(usersavepath)
 
         # file_exists = os.path.isfile(savefilepath)
         # if file_exists:
@@ -117,14 +117,14 @@ advtrainingroom.monster = {"goblin": goblin}
 meadow.monster = {"imp": imp}
 
 # Define Player
-player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
+# player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
 
 # Define Equipment
 equipment = Equipment(dominanthand = None, nondominanthand = None)
 # player.equipment = equipment
 # Initialise gamestate
 gs = GameState()
-gs.player = player
+# gs.player = player
 gs.equipment = equipment
 gs.rooms = rooms
 

@@ -13,11 +13,13 @@ class Room:
     def __str__(self):
         return f"{self.name}.\n {self.description}. Available directions: {list(self.directions.keys())}"
     
-    def listDirections(self):
-        result = ""
-        for k, v in self.directions.items():
-           result += f"{k} will take you to {v.name}.\n"
-        return result  
+    # def listDirections(self):
+    #     result = ""
+    #     for k, v in self.directions.items():
+    #     # v.name is no longer available as self.directions is <String, String>
+    #     # Move listDirections to GameState 
+    #        result += f"{k} will take you to {v.name}.\n"
+    #     return result  
     
     def exploreRoom(self):
         if len(self.items) > 0:
@@ -43,8 +45,6 @@ class Room:
     
     def doCommand(self, command):
         match command.replace(" ", ""):
-            case "listdirections":
-                return self.listDirections()
             case "listitems":
                 return self.listItems()
             case "exploreroom":

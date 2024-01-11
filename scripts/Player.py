@@ -19,7 +19,7 @@
 from Room import *
 import random
 import math
-import json
+
 class Player:
     def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points,preferredhand, otherhand):
         self.username = username

@@ -25,69 +25,64 @@ def getUserList():
 
 def makeCharacter(newUser):
     print_slow(f"You're sleeping peacefully in your bed before a noise reaches you.\n...\nSomeone clears their throat with a quick 'Ahem!'\nYou're awake and when you open your eyes you realise...\n... you're not in your bed!\nYou're standing under a lamp overhead, the only source of light...\n\"Welcome, {newUser}!\" a hissy voice greets you. \nA large serpent with golden eyes and shiny scales slowly slithers into view.\n\n")
+    
     while True:
 
         option1 = input(f"Do you run or do you prepare to fight? (run/fight)")
 
         print_slow(f"Fear not, I will not harm you, {newUser}! I'm here to ask you some questions.\n")
-        print_slow("\"I beg your pardon?\" you reply.")
+        print_slow("\"I beg your pardon?\" you reply.\n\n")
 
-        while True: 
+        print_slow("What are you looking forward to most at the Serpent Academy?")
+        select1 = input("\n 1. Learning to fight \n 2. Learning magic \n 3. What are you talking about?\n 'q' to Start Over \n>")
+            
+        if select1 == '1' : 
+            while True:
+                domhand = input("Are you left-handed or right-handed? (left/right)")   
 
-            print("What are you looking forward to most at the Serpent Academy?")
-            select1 = input("\n 1. Learning to fight \n 2. Learning magic \n 3. What are you talking about?\n 'q' to Start Over \n>")
-                
-            if select1 == '1' : 
-                while True:
-                    domhand = input("Are you left-handed or right-handed? (left/right)")   
+                if domhand.lower().strip() == "left":
+                    nondomhand = "right"
+                    break
+                elif domhand.lower().strip() == "right":
+                    nondomhand = "left"
+                    break
+                else: 
+                    print("Pick left or right!")
 
-                    if domhand.lower().strip() == "left":
-                        nondomhand = "right"
-                        break
-                    elif domhand.lower().strip() == "right":
-                        nondomhand = "left"
-                        break
-                    else: 
-                        print("Pick left or right!")
+            return Player(newUser,attack=10,defence=5,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
 
-                player = Player(newUser,attack=10,defence=5,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-                print(player)
-                print(player.username)
-                break
-            elif select1 == '2' :
-                while True:
-                    domhand = input("Are you left-handed or right-handed? (left/right)")   
+        elif select1 == '2' :
+            while True:
+                domhand = input("Are you left-handed or right-handed? (left/right)")   
 
-                    if domhand.lower().strip() == "left":
-                        nondomhand = "right"
-                        break
-                    elif domhand.lower().strip() == "right":
-                        nondomhand = "left"
-                        break
-                    else: 
-                        print("Pick left or right!")
+                if domhand.lower().strip() == "left":
+                    nondomhand = "right"
+                    break
+                elif domhand.lower().strip() == "right":
+                    nondomhand = "left"
+                    break
+                else: 
+                    print("Pick left or right!")
 
-                player = Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-                break
-            elif select1 == '3' :
-                while True:
-                    domhand = input("Are you left-handed or right-handed? (left/right)")   
+            return Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
+        elif select1 == '3' :
+            while True:
+                domhand = input("Are you left-handed or right-handed? (left/right)")   
 
-                    if domhand.lower().strip() == "left":
-                        nondomhand = "right"
-                        break
-                    elif domhand.lower().strip() == "right":
-                        nondomhand = "left"
-                        break
-                    else: 
-                        print("Pick left or right!")
+                if domhand.lower().strip() == "left":
+                    nondomhand = "right"
+                    break
+                elif domhand.lower().strip() == "right":
+                    nondomhand = "left"
+                    break
+                else: 
+                    print("Pick left or right!")
 
-                player = Player(newUser,attack=5,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-                break
-            elif select1 == 'q':
-                print('Starting over...')
-                break
-            else: print("Please select by typing in a number, or type 'q' to Quit")
+            return Player(newUser,attack=5,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
+        elif select1 == 'q':
+            print('Quitting...')
+            break
+        else: print("Please select by typing in a number, or type 'q' to Quit")
     
     
 def createNewUser():
@@ -108,27 +103,23 @@ def createNewUser():
 
                 if newUser.lower() not in lower_current_users:
                     usernameList.append(newUser)
-                    print(f"Username '{newUser}' created!")
+                    print(f"Your username will be '{newUser}'!")
                     # print(f"Current users: {usernameList}")
 
-                    # createPassword()
-
-                    makeCharacter(newUser)
-
-                elif newUser.lower() in lower_current_users:
-                    print(f"Username '{newUser}' is already taken. Please think of a different username.")
+                    return makeCharacter(newUser)
                 else:
-                    print("Something went wrong there! Sorry about that!")
-                    break
+                    print(f"Username '{newUser}' is already taken. Please think of a different username.")
+                
 
             # If usernameList is empty, create a new user.
             else: 
                 usernameList.append(newUser)
-                print(f"Username '{newUser}' created! Yay!")
-                print(f"Current users: {usernameList}")
+                print(f"Your username will be '{newUser}'!")
+                # print(f"Current users: {usernameList}")
 
                 # createPassword()
-                makeCharacter(newUser) 
+                return makeCharacter(newUser) 
+                
         else:
             print("Please only use letters or numbers while creating your username. Try again!")
                 
