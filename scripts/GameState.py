@@ -1,5 +1,6 @@
 import json
 import os.path
+import random
 class GameState:
     def __str__(self):
         return f""
@@ -206,6 +207,57 @@ class GameState:
     def helpOption(self):
         return "\nIf you want to travel between areas, use keyword \033[1;32;40m'MOVE'\033[0;37;48m followed by direction \033[1;32;40mLEFT, RIGHT, UP or DOWN.\033[0;37;48m \n\n \033[1;32;40m'WHERE AM I'\033[0;37;48m will show which area you are in. \n \033[1;32;40m'WHO AM I'\033[0;37;48m will show your stats. \n \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m will tell you more about the area you are in. \n \033[1;32;40m'TAKE X'\033[0;37;48m will let you pick up an item. \n \033[1;32;40m'ATTACK X'\033[0;37;48m will attack an enemy. \n \033[1;32;40m'EQUIP X'\033[0;37;48m will equip an item. \n \033[1;32;40m'UNEQUIP X'\033[0;37;48m will unequip an item. \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m will unequip everything. \n \033[1;32;40m'LIST ITEMS'\033[0;37;48m will list items in area. \n \033[1;32;40m'LIST INVENTORY'\033[0;37;48m will list items you have.\n \033[1;32;40m'LIST EQUIPMENT'\033[0;37;48m will list what you have equipped.\n \033[1;32;40m'LIST DIRECTIONS'\033[0;37;48m will list directions you can move. \n\n \033[1;32;40m'QUIT'\033[0;37;48m\ will quit the game.n\n"
     
+    def talkNPC(self,npc):
+        key = npc.lower()
+        npc = self.location.npc.get(key)
+
+        if npc is not None:
+            if npc.social == 0:
+                npc.social += 1
+                self.player.earnPoints(5)
+                print(f"Your friendship with {npc.name} increased! {npc.social}points.")
+                return random.choice([
+                    f"\033[1;36;40mHi. I'm {npc.name}!\033[0;37;48m",
+                    f"\033[1;36;40mHello, you must be {self.player.username}! I'm {npc.name}.\033[0;37;48m",
+                    "\033[1;36;40mWho are you again?\033[0;37;48m",
+                    "\033[1;36;40mHey... Can I help you?\033[0;37;48m",
+                    "\033[1;36;40mHey! Nice to meet you! What's up?\033[0;37;48m",
+                    f"\033[1;36;40mYou're {self.player.username}, right? I'm {npc.name}, let me know if you need anything!\033[0;37;48m"
+                    ])
+            elif 0 < npc.social <= 15:
+                if npc.type == "student":
+                    npc.social += random.randint(1, 3)
+                    self.player.earnPoints(1)
+
+                    return random.choice([
+                        f"\033[1;36;40mHey, {self.player.username}! I have been studying hard for the test, I'm so nervous!\033[0;37;48m",
+                        f"\033[1;36;40mHey, {self.player.username}! I've learnt a new spell! Wanna see?\033[0;37;48m \n{npc.name} attempts to cast a fireball, nearly burning their eyebrows.",
+                        "\033[1;36;40mHi! I have combat class later! Have you seen the goblin there? I hope we don't have to fight it!\033[0;37;48m",
+                        f"\033[1;36;40m{self.player.username}!!! Did you just see that gargoyle move? Creepy!\033[0;37;48m",
+                        "\033[1;36;40mHey, how's it going?\033[0;37;48m",
+                        "\033[1;36;40mI really wanna go checkout the boat house at the lake!\033[0;37;48m",
+                        "\033[1;36;40mI nearly got so lost in the mist last week by the lake!\033[0;37;48m",
+                        "\033[1;36;40mHave you heard about the legend of the monster at the Elven Woods?\033[0;37;48m",
+                        "\033[1;36;40mHey... I'm a bit busy right now, I have an exam today!!!\033[0;37;48m",
+                        "\033[1;36;40mHave you been to the meadow yet? It's so pretty there!\033[0;37;48m",
+                        "\033[1;36;40mI'm never going to be able to finish this homework!!! THERE'S SO MUCH TO DO!!!\033[0;37;48m"
+                        ])
+            elif 15 < npc.social < 30:
+                npc.social += 1
+                self.player.earnPoints(1)
+                return random.choice([
+                    f"\033[1;36;40m{self.player.username}, a few of us are thinking of going to the Toadstool Cafe for a brew. Wanna come?\033[0;37;48m",
+                    f"\033[1;36;40m{self.player.username}! Can you help me with combat tomorrow? You make it look so easy!\033[0;37;48m"
+                    ])
+            else:
+                return random.choice([
+                    f"{npc.name} nods at you. They're busy revising for an exam.",
+                    f"\033[1;36;40mHey, {self.player.username}! So sorry, can we chat later I've almost finished this homework!\033[0;37;48m"
+                ])
+
+        else:
+            return f"{key} is not in this room."
+
     def attack(self,monster):
         key = monster.lower()
         monster = self.location.monster.get(key)

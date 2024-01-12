@@ -1,15 +1,11 @@
+import random
 class NPC:
-    def __init__(self,name,description, attack, defence, magic, hp, mp,level, points, items = {}):
+    def __init__(self,name,description, type, items = {},social = 0):
         self.name = name
         self.description = description
-        self.attack = attack
-        self.defence = defence
-        self.magic = magic
-        self.hp = hp
-        self.mp = mp
-        self.level = level
-        self.points = points
+        self.type = type
         self.items = items
+        self.social = social
 
     def __str__(self):
-        return f"\033[1;34;40m{self.name}\033[0;37;40m. {self.description}.\n STATS: ATTACK {self.attack} \n DEFENCE {self.defence} MAGIC {self.magic}.\n"
+        return f"\033[1;36;40m{self.name}. {self.description}.\033[0;37;40m. \n"

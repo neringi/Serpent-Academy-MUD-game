@@ -70,8 +70,9 @@ class Player:
                     self.magic += 1
                     # print("Your Magic has increased!")
         
-        self.level = newlvl
-        print(f"Congratulations! You have leveled up. \n Your Level is {self.level}!")
+        if diff > 1:
+            self.level = newlvl
+            print(f"Congratulations! You have leveled up. \n Your Level is {self.level}!")
             
 
     def doCommand(self, command):

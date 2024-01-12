@@ -4,6 +4,7 @@ from Player import Player
 from Item import Item
 from Monster import Monster
 from Equipment import Equipment
+from NPC import NPC
 
 
 
@@ -28,6 +29,9 @@ def initialGame():
     hydra = Monster("Hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
     gaianthra = Monster("Gaianthra", "The guardian of the Eleven Woods, a large treelike humanoid", 25,20,0,50,25,5,100)
     spectraloak = Monster("Spectral Oak", "A sentient, haunted oak tree", 10,10,0,15,5,2,15)
+
+    # Define NPCs
+    luna = NPC("Luna","Student of Serpent Academy. She seems chatty!","student")
 
 
     # Define Rooms and their relationships
@@ -92,6 +96,9 @@ def initialGame():
     advtrainingroom.monster = {"goblin": goblin}
     meadow.monster = {"imp": imp}
 
+
+    # Link NPCs to rooms
+    courtyard.npc = {"luna": luna}
     # Define Player
     # player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
 

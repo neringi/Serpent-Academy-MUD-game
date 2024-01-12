@@ -10,6 +10,7 @@ from Player import Player
 from Item import Item
 from Monster import Monster
 from Equipment import Equipment
+from NPC import NPC
 
 gs = initialGame()
 
@@ -86,6 +87,12 @@ def updateState(action):
                 print_slow("What are you trying to use? Type \033[1;32;40m''USE'\033[0;37;48m followed by the name of the item.\n")
             elif len(tokens) > 1:
                 display(gs.useItem(tokens[1]))
+        case "talk":
+            if len(tokens) == 1:
+                print_slow("Who are you trying to talk to? Type 'TALK' followed by the name of who you are trying to talk to!")
+            elif len(tokens) > 1:
+                display(gs.talkNPC(tokens[1]))
+                
 
 
 
