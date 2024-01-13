@@ -21,6 +21,11 @@ def initialGame():
     stick = Item("Wooden Stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
     commonpotion = Item("Common Potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
     thornydagger = Item("Thorny Dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee",0)
+    healinghoneybread = Item("Manuka Honey Bread", "A freshly baked slice of honey bread, Increases hp fully", 5,0,10,10,True,"potion",30)
+    strengthsoda = Item("Extra Strength Potion", "A purple, sparkling soda that allows you to block damage",5,0,25,0,True,"potion",0)
+    glowberryshortcake = Item("Glowberry Shortcake", "A cake made from the finest glowberries, increases mp",5,0,0,10,True,"potion",0)
+    lucarianshield = Item("Lucarian Shield", "A metal shield dropped by the Hydra, it is engraved with an aquarian language",25,0,25,0,True,"shield",0)
+    sacredamulet = Item("Sacred Amulet", "A sacred amulet bestowed to you by Gaianthra, it has protective energy",25,0,25,25,True,"magic",0)
 
     # Define Monsters
     trainingdummy = Monster("Training Dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
@@ -103,6 +108,9 @@ def initialGame():
     # Link the items to rooms
     trainingroom.items = {"training sword": trainingsword, "training shield": trainingshield, "wooden stick": stick}
     advtrainingroom.items = {"common potion": commonpotion}
+    lake.items = {"Thorny Dagger": thornydagger, "Health Potion" : hppotion}
+    elvenwoods.items = {"Sacred Amulet": sacredamulet, "Health Potion" : hppotion}
+    magiccafe.items = {"Healing Honey Bread": healinghoneybread, "Strength Soda": strengthsoda, "Glowberry Shortcake": glowberryshortcake}
 
     # Link monsters to rooms
     trainingroom.monster = {"training dummy": trainingdummy}
@@ -111,7 +119,14 @@ def initialGame():
 
 
     # Link NPCs to rooms
-    courtyard.npc = {"luna": luna}
+    courtyard.npc = {"Luna": luna}
+    courtyard.npc = {"Caspian" : caspian}
+    courtyard.npc = {"Orion" : orion}
+    courtyard.npc = {"Calista" : calista}
+    courtyard.npc = {"Thorne":thorne}
+    courtyard.npc = {"Fae" : fae}
+    courtyard.npc = {"Lyra" : lyra}
+    courtyard.npc = {"Rune" : rune}
     # Define Player
     # player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
 
