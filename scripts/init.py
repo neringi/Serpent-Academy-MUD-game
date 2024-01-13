@@ -126,7 +126,10 @@ def initialGame():
 
     # Link items to monsters
     goblin.items = {"common potion": commonpotion}
-
+    swordfish.items = {"common potion" : commonpotion}
+    slime.items = {"common potion": commonpotion}
+    gaianthra.items = {"sacred amulet": sacredamulet}
+    cacklingcrow.items = { "common potion":commonpotion}
 
     # Link NPCs to rooms
     courtyard.npc = {"Luna": luna}
