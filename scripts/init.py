@@ -32,6 +32,13 @@ def initialGame():
 
     # Define NPCs
     luna = NPC("Luna","Student of Serpent Academy. She seems chatty!","student")
+    caspian = NPC("Caspian", "Student of Serpent Academy. He seems a bit sad", "student")
+    orion = NPC("Orion", "Student of Serpent Academy. He seems grumpy!", "student")
+    calista = NPC("Calista", "Student of Serpent Academy. She seems to be in a good mood!", "student")
+    thorne = NPC("Thorne", "Student of Serpent Academy. He seems chatty!", "student")
+    fae = NPC("Fae", "Student of Serpent Academy. She looks calm", "student")
+    lyra = NPC("Lyra", "Student of Serpent Academy. She looks grumpy!", "student")
+    rune = NPC("Rune", "Student of Serpent Academy. He seems sad about something", "student")
 
 
     # Define Rooms and their relationships
