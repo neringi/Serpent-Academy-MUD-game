@@ -34,9 +34,9 @@ def initialGame():
     hydra = Monster("Hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
     gaianthra = Monster("Gaianthra", "The guardian of the Eleven Woods, a large treelike humanoid", 25,20,0,50,25,5,100)
     spectraloak = Monster("Spectral Oak", "A sentient, haunted oak tree", 10,10,0,15,5,2,15)
-    slime = Monster("Slime", "A red slime with beady eyes",5,5,0,10,0,2,5,hppotion)
+    slime = Monster("Slime", "A red slime with beady eyes",5,5,0,10,0,2,5,commonpotion)
     cacklingcrow = Monster("Cackling Crow", "A malevolent crow with obsidian feathers",3,5,0,15,0,3,5,None)
-    swordfish = Monster("A silver swordfish", "A fish with an actual sword for a nose",6,10,10,0,0,10,hppotion)
+    swordfish = Monster("A silver swordfish", "A fish with an actual sword for a nose",6,10,10,0,0,10,commonpotion)
     toxicfrog = Monster("A toxic frog", "A frog that has adapted to the mystical lake environment",5,5,0,10,5,5,10,None)
     cyclops = Monster("A towering tyrant armed with barbaric weaponry and one eye",10,5,0,25,0,5,25,None)
 
