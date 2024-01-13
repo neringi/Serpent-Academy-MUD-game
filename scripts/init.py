@@ -119,7 +119,7 @@ def initialGame():
 
     # Link monsters to rooms
     trainingroom.monster = {"training dummy": trainingdummy}
-    advtrainingroom.monster = {"goblin": goblin}
+    advtrainingroom.monster = {"goblin": goblin, "cyclops": cyclops}
     meadow.monster = {"imp": imp}
     lake.monster = {"hydra": hydra, "swordfish": swordfish, "toxic frog": toxicfrog}
     elvenwoods.monster = {"gaianthra": gaianthra, "spectraloak": spectraloak, "cackling crow":cacklingcrow}

@@ -12,6 +12,7 @@ from Monster import Monster
 from Equipment import Equipment
 from NPC import NPC
 
+
 gs = initialGame()
 
 VALID_MOVES = ["left", "right", "up", "down"]
@@ -144,13 +145,36 @@ def userMoves():
 # ../|' v . | .|||||/____|____\|||| /|. . | . ./
 # .|//\............/...........\........../../\\\
 
+            
+school = print('''     
+      
+    |>>>                                                      |>>>
+    |                    |>>>          |>>>                   |
+    *                     |             |                     *
+   / \                    *             *                    / \.
+  /___\                 _/ \           / \_                 /___\.
+  [   ]                |/   \_________/   \|                [   ]
+  [ I ]                /     \       /     \                [ I ]
+  [   ]_ _ _          /       \     /       \          _ _ _[   ]
+  [   ] U U |        {#########}   {#########}        | U U [   ]
+  [   ]====/          \=======/     \=======/          \====[   ]
+  [   ]    |           |   I |_ _ _ _| I   |           |    [   ]
+  [___]    |_ _ _ _ _ _|     | U U U |     |_ _ _ _ _ _|    [___]
+  \===/  I | U U U U U |     |=======|     | U U U U U | I  \===/
+   \=/     |===========| I   | + W + |   I |===========|     \=/
+    |  I   |           |     |_______|     |           |   I  |
+    |      |           |     |||||||||     |           |      |
+    |      |           |   I ||vvvvv|| I   |           |      |
+_-_-|______|-----------|_____||     ||_____|-----------|______|-_-_
+   /________\         /______||     ||______\         /________\.
+   
+    ''')
 
-# """
 
 # Welcome message when starting the game
 print_slow("V1.0 Jan 2024\n")
 print_slow("Created by Mesha and Neringa\n")
-# print(castle)
+print(school)
 print_slow("Welcome to the Serpent Academy!\n\n")
 time.sleep(1)
 
