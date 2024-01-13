@@ -201,7 +201,12 @@ class GameState:
             if item.itemtype == "potion":
                 if item.hp > 0:
                     self.player.hp += item.hp
-                    return f"You drank the potion. It tasted like raspberries???\n HP increased by {item.hp}!\n"
+                    self.player.inventory.pop(item)
+                    return f"You drank the potion. It tasted like... strawberries???\n HP increased by {item.hp}!\n"
+                else:
+                    return "It did nothing."
+            else:
+                return f"Cannot use {itemname}."    
 
 
     def helpOption(self):
@@ -266,6 +271,11 @@ class GameState:
             monster.hp -= playerattack
 
             if monster.hp <= 0:
+                loot = monster.items.values()
+                print(loot)
+                
+                self.player.inventory += loot
+                
                 self.location.monster.pop(key,None)
                 self.player.earnPoints(monster.points)
                 return f" You have killed '{monster.name}'!\n You've earned {monster.points} points!\n"
