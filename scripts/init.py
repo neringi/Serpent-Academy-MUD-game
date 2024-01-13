@@ -41,6 +41,12 @@ def initialGame():
     rune = NPC("Rune", "Student of Serpent Academy. He seems sad about something", "student")
 
 
+    #Felicity = NPC("Felicity", "The Toadstool Cafe Shopkeeper", "other")
+   # Pedro = NPC("Pedro", "The Dungeon Master", "other")
+    #EdenEldritch = NPC("Eden Eldritch", "Serpent Academy Combat Teacher", "teacher")
+    #SeraphinaSpellweaver = NPC("Seraphina Spellweaver", "Serpent Academy Magic Teacher", "teacher")
+
+
     # Define Rooms and their relationships
     trainingroom = Room("The Training Room","This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.")
     advtrainingroom = Room("Advanced Training Room","This is the advanced training room. You should not stick around here unless you know how to fight!") 
