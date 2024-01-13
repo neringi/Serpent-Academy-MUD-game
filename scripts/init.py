@@ -112,7 +112,6 @@ def initialGame():
 
     # Link the items to rooms
     trainingroom.items = {"training sword": trainingsword, "training shield": trainingshield, "wooden stick": stick}
-    advtrainingroom.items = {"common potion": commonpotion}
     lake.items = {"Thorny Dagger": thornydagger, "Health Potion" : commonpotion}
     elvenwoods.items = {"Sacred Amulet": sacredamulet, "Health Potion" : commonpotion}
     magiccafe.items = {"Healing Honey Bread": healinghoneybread, "Strength Soda": strengthsoda, "Glowberry Shortcake": glowberryshortcake}
@@ -124,6 +123,9 @@ def initialGame():
     lake.monster = {"hydra": hydra, "swordfish": swordfish, "toxic frog": toxicfrog}
     elvenwoods.monster = {"gaianthra": gaianthra, "spectraloak": spectraloak, "cackling crow":cacklingcrow}
     dungeon.monster = {"slime": slime}
+
+    # Link items to monsters
+    goblin.items = {"common potion": commonpotion}
 
 
     # Link NPCs to rooms
