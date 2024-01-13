@@ -21,7 +21,7 @@ import random
 import math
 
 class Player:
-    def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points,preferredhand, otherhand):
+    def __init__(self, username,attack,defence,magic,hp,mp, inventory, level,points,preferredhand, otherhand,favfood):
         self.username = username
         self.attack = attack
         self.defence = defence
@@ -33,9 +33,13 @@ class Player:
         self.points = points
         self.preferredhand = preferredhand
         self.otherhand = otherhand
+        self.favfood = favfood
 
     def __str__(self):
         return f"You are {self.username}."
+    
+    def favFood(self):
+        return f"Favourite food: {self.favfood}."
 
     def listInventory(self):
         if len(self.inventory) == 0:

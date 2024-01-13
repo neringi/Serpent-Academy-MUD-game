@@ -12,7 +12,6 @@ def getUserList():
     usersaves = os.listdir(savesfolder) 
 
     usersaves.remove("ascii")
-    usersaves.remove("serpent_academy_leaderboard.csv")
 
     usernameList = []
     for x in usersaves:
@@ -24,24 +23,21 @@ def getUserList():
 
 
 def makeCharacter(newUser):
-    print_slow(f"You're sleeping peacefully in your bed before a noise reaches you.\n...\nSomeone clears their throat with a quick 'Ahem!'\nYou're awake and when you open your eyes you realise...\n... you're not in your bed!\nYou're standing under a lamp overhead, the only source of light...\n\"Welcome, {newUser}!\" a hissy voice greets you. \nA large serpent with golden eyes and shiny scales slowly slithers into view.\n\n")
+    print_slow(f"You're sleeping peacefully in your bed before a noise reaches you.\n...\nSomeone clears their throat with a quick 'Ahem!'\nYou're awake and when you open your eyes you realise...\n... you're not in your bed!\nYou're standing under a lamp overhead, the only source of light...\n\"\033[1;36;40mWelcome, {newUser}!\033[0;37;48m\" a hissy voice greets you. \nA large serpent with golden eyes and shiny scales slowly slithers into view.\n\n")
     
     while True:
 
         option1 = input(f"Do you run or do you prepare to fight? (run/fight)")
 
-        print_slow(f"Fear not, I will not harm you, {newUser}! I'm here to ask you some questions.\n")
+        print_slow(f"\033[1;36;40mFear not, I will not harm you, {newUser}! I'm here to ask you some questions.\033[0;37;48m\n")
         print_slow("\"I beg your pardon?\" you reply.\n\n")
 
-        print_slow("What are you looking forward to most at the Serpent Academy?")
-        select1 = input("\n 1. Learning to fight \n 2. Learning magic \n 3. What are you talking about?\n 'q' to Start Over \n>")
-
-        #print_slow("Would you rather have a Dragon, Unicorn or a Pixie as a pet?")
-        #select2 = input("\n 1. Dragon \n 2. Unicorn \n 3. Pixie \n 'q' to start over \n")
+        print_slow("Would you rather have a Dragon, Unicorn or a Pixie as a pet?")
+        select1 = input("\n 1. Dragon \n 2. Unicorn \n 3. Pixie \n 'q' to Start Over \n>")
             
         if select1 == '1' : 
             while True:
-                domhand = input("Are you left-handed or right-handed? (left/right)")   
+                domhand = input("Are you left-handed or right-handed? (left/right)\n")   
 
                 if domhand.lower().strip() == "left":
                     nondomhand = "right"
@@ -52,11 +48,18 @@ def makeCharacter(newUser):
                 else: 
                     print("Pick left or right!")
 
-            return Player(newUser,attack=10,defence=5,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
+            favfood = input("Last, but not least! What is your favourite food?\n")
+
+            if favfood.lower().strip() == "":
+                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                favfood = "banana peels"
+                    
+
+            return Player(newUser,attack=10,defence=5,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand,favfood = favfood)
 
         elif select1 == '2' :
             while True:
-                domhand = input("Are you left-handed or right-handed? (left/right)")   
+                domhand = input("Are you left-handed or right-handed? (left/right)\n")   
 
                 if domhand.lower().strip() == "left":
                     nondomhand = "right"
@@ -67,10 +70,16 @@ def makeCharacter(newUser):
                 else: 
                     print("Pick left or right!")
 
-            return Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
+            favfood = input("Last, but not least! What is your favourite food?\n")
+
+            if favfood.lower().strip() == "":
+                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                favfood = "banana peels"
+
+            return Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand,favfood = favfood)
         elif select1 == '3' :
             while True:
-                domhand = input("Are you left-handed or right-handed? (left/right)")   
+                domhand = input("Are you left-handed or right-handed? (left/right)\n")   
 
                 if domhand.lower().strip() == "left":
                     nondomhand = "right"
@@ -81,55 +90,17 @@ def makeCharacter(newUser):
                 else: 
                     print("Pick left or right!")
 
-            return Player(newUser,attack=5,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
+            favfood = input("Last, but not least! What is your favourite food?\n")
+
+            if favfood.lower().strip() == "":
+                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                favfood = "banana peels"
+
+            return Player(newUser,attack=5,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand,favfood = favfood)
         elif select1 == 'q':
             print('Quitting...')
             break
         else: print("Please select by typing in a number, or type 'q' to Quit")
-        
-       # print_slow("Would you rather have a Dragon, Unicorn or a Pixie as a pet?")
-        # select2 = input("\n 1. Dragon \n 2. Unicorn \n 3. Pixie \n 'q' to start over \n")
-
-        #if select2 == '1': 
-            #while True:
-                #pet = input("Which one do you choose? (Dragon/Unicorn/Pixie") 
-
-                #if pet.lower().strip() == "Dragon":
-                    #print("Strength is key for battle!")
-                    #break
-                #else: 
-                    #print("Pick an option!")
-
-            #return Player(newUser,attack=10,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-        
-        #elif select2 == '2':
-            #while True:
-                #pet = input("Which one do you choose? (Dragon/Unicorn/Pixie")
-
-                #if pet.lower().strip() == 'Unicorn':
-                    #print("Magical!")
-                   # break
-                #else:
-                    #print("Pick an option!")
-
-                #return Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-        #elif select2 == '3':
-            #while True:
-                #pet = input("Which one do you choose? (Dragon/Unicorn/Pixie)")
-
-                #if pet.lower().strip() == "Pixie":
-                    #print("How mischievous!")
-                    #break
-            #return Player(newUser,attack=10,defence=10,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand)
-        
-        #elif select1 == 'q':
-            #print('Quitting...')
-            #break
-        #else: print("Please select by typing in a number, or type 'q' to Quit")
-
-
-
-
     
     
 def createNewUser():

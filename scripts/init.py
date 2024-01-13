@@ -6,10 +6,6 @@ from Monster import Monster
 from Equipment import Equipment
 from NPC import NPC
 
-
-
-
-
 def initialGame():
 
     # Define valid directions to move
@@ -111,6 +107,7 @@ def initialGame():
     boathouse.directions = boathouseDirections
 
     # Link the items to rooms
+    advtrainingroom.items = {"common potion": commonpotion}
     trainingroom.items = {"training sword": trainingsword, "training shield": trainingshield, "wooden stick": stick}
     lake.items = {"Thorny Dagger": thornydagger, "Health Potion" : commonpotion, "Lucarian Shield":lucarianshield}
     elvenwoods.items = {"Sacred Amulet": sacredamulet, "Health Potion" : commonpotion}
@@ -141,15 +138,16 @@ def initialGame():
     courtyard.npc = {"Fae" : fae}
     courtyard.npc = {"Lyra" : lyra}
     courtyard.npc = {"Rune" : rune}
+
+
     # Define Player
-    # player = Player("ringo", attack=10,defence=10,magic=10, hp=100, mp=100, inventory=[trainingshield], level=1, points=0, preferredhand = "left", otherhand = "right")
+    # player gets defined when character is created
 
     # Define Equipment
     equipment = Equipment(dominanthand = None, nondominanthand = None)
-    # player.equipment = equipment
+
     # Initialise gamestate
     gs = GameState()
-    # gs.player = player
     gs.equipment = equipment
     gs.rooms = rooms
 

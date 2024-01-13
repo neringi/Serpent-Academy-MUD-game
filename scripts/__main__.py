@@ -93,6 +93,8 @@ def updateState(action):
                 print_slow("Who are you trying to talk to? Type 'TALK' followed by the name of who you are trying to talk to!")
             elif len(tokens) > 1:
                 display(gs.talkNPC(tokens[1]))
+        case "favouritefood":
+            display(gs.player.favFood())
                 
 
 
