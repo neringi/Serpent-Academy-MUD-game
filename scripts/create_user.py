@@ -31,9 +31,10 @@ def makeCharacter(newUser):
 
         print_slow(f"\033[1;36;40mFear not, I will not harm you, {newUser}! I'm here to ask you some questions.\033[0;37;48m\n")
         print_slow("\"I beg your pardon?\" you reply.\n\n")
-
-        print_slow("Would you rather have a Dragon, Unicorn or a Pixie as a pet?")
-        select1 = input("\n 1. Dragon \n 2. Unicorn \n 3. Pixie \n 'q' to Start Over \n>")
+        time.sleep(0.5)
+        clear()
+        print_slow("\033[1;36;40mWould you rather have a Dragon, Unicorn or a Pixie as a pet?\033[0;37;48m\n")
+        select1 = input("\n 1. Dragon \n 2. Unicorn \n 3. Pixie \n \n>")
             
         if select1 == '1' : 
             while True:
@@ -51,7 +52,9 @@ def makeCharacter(newUser):
             favfood = input("Last, but not least! What is your favourite food?\n")
 
             if favfood.lower().strip() == "":
-                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                print_slow("You did not tell me so I'm going to say it is \033[1;33;40mbanana peels\033[0;37;48m! HA!!!")
+                time.sleep(0.5)
+                clear()
                 favfood = "banana peels"
                     
 
@@ -73,7 +76,9 @@ def makeCharacter(newUser):
             favfood = input("Last, but not least! What is your favourite food?\n")
 
             if favfood.lower().strip() == "":
-                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                print_slow("You did not tell me so I'm going to say it is \033[1;33;40mbanana peels\033[0;37;48m! HA!!!")
+                time.sleep(0.5)
+                clear()
                 favfood = "banana peels"
 
             return Player(newUser,attack=5,defence=5,magic=10,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand,favfood = favfood)
@@ -93,14 +98,13 @@ def makeCharacter(newUser):
             favfood = input("Last, but not least! What is your favourite food?\n")
 
             if favfood.lower().strip() == "":
-                print_slow("You did not tell me so I'm going to say it is banana peels! HA!!!")
+                print_slow("You did not tell me so I'm going to say it is \033[1;33;40mbanana peels\033[0;37;48m! HA!!!")
+                time.sleep(0.5)
+                clear()
                 favfood = "banana peels"
 
             return Player(newUser,attack=5,defence=10,magic=5,hp=100,mp=100,inventory=[],level=1,points=0,preferredhand= domhand,otherhand=nondomhand,favfood = favfood)
-        elif select1 == 'q':
-            print('Quitting...')
-            break
-        else: print("Please select by typing in a number, or type 'q' to Quit")
+        else: print("Please select by typing in a number!")
     
     
 def createNewUser():
@@ -113,15 +117,17 @@ def createNewUser():
             
         # Check if username contains special characters
         if newUser.isalnum():
-            # Check usernameList is not empty
+
+            # Check username doesn't already exist
             if len(usernameList) > 0:
                 
                 lower_current_users = [x.lower() for x in usernameList]
-                print(lower_current_users)
-
+                # print(lower_current_users)
+                clear()
+                
                 if newUser.lower() not in lower_current_users:
                     usernameList.append(newUser)
-                    print(f"Your username will be '{newUser}'!")
+                    print(f"Your username will be '\033[1;36;40m{newUser}\033[0;37;48m'!")
                     # print(f"Current users: {usernameList}")
 
                     return makeCharacter(newUser)
@@ -135,7 +141,6 @@ def createNewUser():
                 print(f"Your username will be '{newUser}'!")
                 # print(f"Current users: {usernameList}")
 
-                # createPassword()
                 return makeCharacter(newUser) 
                 
         else:

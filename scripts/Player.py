@@ -48,7 +48,7 @@ class Player:
             return self.inventory
     
     def whoAmI(self):
-        return f"You are \033[1;36;40m{self.username}\033[0;37;48m. \033[1;36;40mHP\033[0;37;48m: {self.hp} \n STATS: \n \033[1;36;40mAttack\033[0;37;48m ({self.attack})\n \033[1;36;40mDefence\033[0;37;48m ({self.defence}) \n \033[1;36;40mMagic\033[0;37;48m ({self.magic})\n\n You are currently \033[1;36;40mLevel {self.level}\033[0;37;48m and have \033[1;36;40m{self.points} points\033[0;37;48m.\n"
+        return f"You are \033[1;36;40m{self.username}\033[0;37;48m.\n \n STATS: \n \033[1;36;40mHP\033[0;37;48m: {self.hp} \n \033[1;36;40mAttack\033[0;37;48m ({self.attack})\n \033[1;36;40mDefence\033[0;37;48m ({self.defence}) \n \033[1;36;40mMagic\033[0;37;48m ({self.magic})\n\n You are currently \033[1;36;40mLevel {self.level}\033[0;37;48m and have \033[1;36;40m{self.points} points\033[0;37;48m.\n"
     
     def earnPoints(self, points):
         self.points += points

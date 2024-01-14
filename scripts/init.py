@@ -12,29 +12,29 @@ def initialGame():
     VALID_MOVES = ["left", "right", "up", "down"]
 
     # Define items 
-    trainingsword = Item("Training Sword","A wooden sword used by students while training.", 10, 2, 0, 0, True, "melee",0)
-    trainingshield = Item("Training Shield","A wooden kite shield used by students while training.", 10, 0, 2, 0, True, "shield",0)
-    stick = Item("Wooden Stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
-    commonpotion = Item("Common Potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
-    thornydagger = Item("Thorny Dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee",0)
-    healinghoneybread = Item("Manuka Honey Bread", "A freshly baked slice of honey bread, Increases hp fully", 5,0,10,10,True,"potion",30)
-    strengthsoda = Item("Extra Strength Potion", "A purple, sparkling soda that allows you to block damage",5,0,25,0,True,"potion",0)
-    glowberryshortcake = Item("Glowberry Shortcake", "A cake made from the finest glowberries, increases mp",5,0,0,10,True,"potion",0)
-    lucarianshield = Item("Lucarian Shield", "A metal shield dropped by the Hydra, it is engraved with an aquarian language",25,0,25,0,True,"shield",0)
-    sacredamulet = Item("Sacred Amulet", "A sacred amulet bestowed to you by Gaianthra, it has protective energy",25,0,25,25,True,"magic",0)
+    trainingsword = Item("training sword","A wooden sword used by students while training.", 10, 2, 0, 0, True, "melee",0)
+    trainingshield = Item("training shield","A wooden kite shield used by students while training.", 10, 0, 2, 0, True, "shield",0)
+    stick = Item("wooden stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
+    commonpotion = Item("common potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
+    thornydagger = Item("thorny dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee",0)
+    healinghoneybread = Item("manuka honey bread", "A freshly baked slice of honey bread, Increases hp fully", 5,0,10,10,True,"potion",30)
+    strengthsoda = Item("extra strength potion", "A purple, sparkling soda that allows you to block damage",5,0,25,0,True,"potion",0)
+    glowberryshortcake = Item("glowberry shortcake", "A cake made from the finest glowberries, increases mp",5,0,0,10,True,"potion",0)
+    lucarianshield = Item("lucarian shield", "A metal shield dropped by the Hydra, it is engraved with an aquarian language",25,0,25,0,True,"shield",0)
+    sacredamulet = Item("sacred amulet", "A sacred amulet bestowed to you by Gaianthra, it has protective energy",25,0,25,25,True,"magic",0)
 
     # Define Monsters
-    trainingdummy = Monster("Training Dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
-    goblin = Monster("Goblin","A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",15,5,0,15,0,2,25)
-    imp = Monster("Imp","Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",15,10,10,20,20,3,20)
-    hydra = Monster("Hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
-    gaianthra = Monster("Gaianthra", "The guardian of the Eleven Woods, a large treelike humanoid", 25,20,0,50,25,5,100)
-    spectraloak = Monster("Spectral Oak", "A sentient, haunted oak tree", 10,10,0,15,5,2,15)
-    slime = Monster("Slime", "A red slime with beady eyes",5,5,0,10,0,2,5,commonpotion)
-    cacklingcrow = Monster("Cackling Crow", "A malevolent crow with obsidian feathers",3,5,0,15,0,3,5,None)
-    swordfish = Monster("A silver swordfish", "A fish with an actual sword for a nose",6,10,10,0,0,10,commonpotion)
-    toxicfrog = Monster("A toxic frog", "A frog that has adapted to the mystical lake environment",5,5,0,10,5,5,10,None)
-    cyclops = Monster("A towering tyrant armed with barbaric weaponry and one eye",10,5,0,25,0,5,25,None)
+    trainingdummy = Monster("training dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
+    goblin = Monster("goblin","A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",15,5,0,15,0,2,25)
+    imp = Monster("imp","Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",15,10,10,20,20,3,20)
+    hydra = Monster("hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
+    gaianthra = Monster("gaianthra", "The guardian of the Eleven Woods, a large treelike humanoid", 25,20,0,50,25,5,100)
+    spectraloak = Monster("spectral oak", "A sentient, haunted oak tree", 10,10,0,15,5,2,15)
+    slime = Monster("slime", "A red slime with beady eyes",5,5,0,10,0,2,5)
+    cacklingcrow = Monster("cackling crow", "A malevolent crow with obsidian feathers",15,5,0,15,0,3,5)
+    swordfish = Monster("silver swordfish", "A fish with an actual sword for a nose",20,10,10,50,0,3,40)
+    toxicfrog = Monster("toxic frog", "A frog that has adapted to the mystical lake environment",5,5,0,10,5,5,10)
+    cyclops = Monster("cyclops","A towering tyrant armed with barbaric weaponry and one eye",10,5,0,25,0,5,25)
 
     # Define NPCs
     luna = NPC("Luna","Student of Serpent Academy. She seems chatty!","student")
@@ -122,22 +122,18 @@ def initialGame():
     dungeon.monster = {"slime": slime}
 
     # Link items to monsters
-    goblin.items = {"Common Potion": commonpotion}
-    swordfish.items = {"Common Potion" : commonpotion}
-    slime.items = {"Common Potion": commonpotion}
-    gaianthra.items = {"Sacred Amulet": sacredamulet}
-    cacklingcrow.items = { "Common Potion":commonpotion}
-    hydra.items = {"Lucarian Shield":lucarianshield}
+    goblin.items = {"common potion": commonpotion}
+    swordfish.items = {"common potion" : commonpotion}
+    slime.items = {"common potion": commonpotion}
+    gaianthra.items = {"sacred amulet": sacredamulet}
+    cacklingcrow.items = { "common potion":commonpotion}
+    hydra.items = {"lucarian shield":lucarianshield}
 
     # Link NPCs to rooms
-    courtyard.npc = {"Luna": luna}
-    courtyard.npc = {"Caspian" : caspian}
-    courtyard.npc = {"Orion" : orion}
-    courtyard.npc = {"Calista" : calista}
-    courtyard.npc = {"Thorne":thorne}
-    courtyard.npc = {"Fae" : fae}
-    courtyard.npc = {"Lyra" : lyra}
-    courtyard.npc = {"Rune" : rune}
+    courtyard.npc = {"luna": luna, "caspian": caspian, "orion": orion, "thorne": thorne, "fae": fae}
+    trainingroom.npc = {"calista": calista}
+    lecturehall.npc = {"lyra" : lyra}
+    magiccafe.npc = {"rune" : rune}
 
 
     # Define Player

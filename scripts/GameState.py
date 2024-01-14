@@ -195,22 +195,25 @@ class GameState:
 
         # Check if the item is in the inventory
         item = next(item for item in self.player.inventory if item.name.lower() == key)
+        print(item)
         if item is None:
-            return f"You do not have item {itemname}\n"
+            return f"You do not have item \033[1;33;40m{itemname}\033[0;37;48m\n"
         else:
             if item.itemtype == "potion":
                 if item.hp > 0:
                     self.player.hp += item.hp
-                    self.player.inventory.pop(item)
-                    return f"You drank the potion. It tasted like... strawberries???\n HP increased by {item.hp}!\n"
+                    # print(item.hp)
+                    # print(self.player.inventory)
+                    self.player.inventory.remove(item)
+                    return f"You drank the potion. It tasted like... \033[1;33;40m{self.player.favfood}\033[0;37;48m!?!\n HP increased by {item.hp}!\n"
                 else:
                     return "It did nothing."
             else:
-                return f"Cannot use {itemname}."    
+                return f"Cannot use \033[1;33;40m{itemname}\033[0;37;48m."    
 
 
     def helpOption(self):
-        return "\nIf you want to travel between areas, use keyword \033[1;32;40m'MOVE'\033[0;37;48m followed by direction \033[1;32;40mLEFT, RIGHT, UP or DOWN.\033[0;37;48m \n\n \033[1;32;40m'WHERE AM I'\033[0;37;48m will show which area you are in. \n \033[1;32;40m'WHO AM I'\033[0;37;48m will show your stats. \n \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m will tell you more about the area you are in. \n \033[1;32;40m'TAKE X'\033[0;37;48m will let you pick up an item. \n \033[1;32;40m'ATTACK X'\033[0;37;48m will attack an enemy. \n \033[1;32;40m'EQUIP X'\033[0;37;48m will equip an item. \n \033[1;32;40m'UNEQUIP X'\033[0;37;48m will unequip an item. \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m will unequip everything. \n \033[1;32;40m'LIST ITEMS'\033[0;37;48m will list items in area. \n \033[1;32;40m'LIST INVENTORY'\033[0;37;48m will list items you have.\n \033[1;32;40m'LIST EQUIPMENT'\033[0;37;48m will list what you have equipped.\n \033[1;32;40m'LIST DIRECTIONS'\033[0;37;48m will list directions you can move. \n\n \033[1;32;40m'QUIT'\033[0;37;48m\ will quit the game.\n"
+        print("\nIf you want to travel between areas, use keyword \033[1;32;40m'MOVE'\033[0;37;48m followed by direction \033[1;32;40mLEFT, RIGHT, UP or DOWN.\033[0;37;48m \n\n \033[1;32;40m'WHERE AM I'\033[0;37;48m will show which area you are in. \n \033[1;32;40m'WHO AM I'\033[0;37;48m will show your stats. \n \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m will tell you more about the area you are in. \n \033[1;32;40m'TAKE X'\033[0;37;48m will let you pick up an item. \n \033[1;32;40m'ATTACK X'\033[0;37;48m will attack an enemy. \n \033[1;32;40m'EQUIP X'\033[0;37;48m will equip an item. \n \033[1;32;40m'UNEQUIP X'\033[0;37;48m will unequip an item. \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m will unequip everything. \n \033[1;32;40m'LIST ITEMS'\033[0;37;48m will list items in area. \n \033[1;32;40m'LIST INVENTORY'\033[0;37;48m will list items you have.\n \033[1;32;40m'LIST EQUIPMENT'\033[0;37;48m will list what you have equipped.\n \033[1;32;40m'LIST DIRECTIONS'\033[0;37;48m will list directions you can move. \n\n \033[1;32;40m'QUIT'\033[0;37;48m will quit the game.\n")
     
     def talkNPC(self,npc):
         key = npc.lower()
@@ -220,13 +223,14 @@ class GameState:
             if npc.social == 0:
                 npc.social += 1
                 self.player.earnPoints(5)
-                print(f"Your friendship with {npc.name} increased! {npc.social}points.")
+                print(f"Your are now acquainted with \033[1;36;40m{npc.name}\033[0;37;48m!")
                 return random.choice([
                     f"\033[1;36;40mHi. I'm {npc.name}!\033[0;37;48m",
                     f"\033[1;36;40mHello, you must be {self.player.username}! I'm {npc.name}.\033[0;37;48m",
                     "\033[1;36;40mWho are you again?\033[0;37;48m",
                     "\033[1;36;40mHey... Can I help you?\033[0;37;48m",
                     "\033[1;36;40mHey! Nice to meet you!\033[0;37;48m",
+                    "\033[1;36;40mHmm? What's up?\033[0;37;48m",
                     f"\033[1;36;40mYou're {self.player.username}, right? I'm {npc.name}, let me know if you need anything!\033[0;37;48m"
                     ])
             elif 0 < npc.social <= 15:
@@ -237,15 +241,13 @@ class GameState:
                     return random.choice([
                         f"\033[1;36;40mHey, {self.player.username}! I have been studying hard for the test, I'm so nervous!\033[0;37;48m",
                         f"\033[1;36;40mHey, {self.player.username}! I've learnt a new spell! Wanna see?\033[0;37;48m \n{npc.name} attempts to cast a fireball, nearly burning their eyebrows.",
-                        "\033[1;36;40mHi! I have combat class later! Have you seen the goblin there? I hope we don't have to fight it!\033[0;37;48m",
-                        f"\033[1;36;40m{self.player.username}!!! Did you just see that gargoyle move? Creepy!\033[0;37;48m",
                         "\033[1;36;40mHey, how's it going?\033[0;37;48m",
-                        "\033[1;36;40mI really wanna go checkout the boat house at the lake!\033[0;37;48m",
-                        "\033[1;36;40mI nearly got so lost in the mist last week by the lake!\033[0;37;48m",
-                        "\033[1;36;40mHave you heard about the legend of the monster at the Elven Woods?\033[0;37;48m",
                         "\033[1;36;40mHey... I'm a bit busy right now, I have an exam today!!!\033[0;37;48m",
                         "\033[1;36;40mHave you been to the meadow yet? It's so pretty there!\033[0;37;48m",
-                        "\033[1;36;40mI'm never going to be able to finish this homework!!! THERE'S SO MUCH TO DO!!!\033[0;37;48m"
+                        "\033[1;36;40mI'm never going to be able to finish this homework!!! THERE'S SO MUCH TO DO!!!\033[0;37;48m",
+                        "\033[1;36;40mDo you know much about goblins?\033[0;37;48m",
+                        "\033[1;36;40mDo you know much about combat moves?\033[0;37;48m",
+                        "\033[1;36;40mThat lecture was sooooo long. I need a nap!\033[0;37;48m"
                         ])
             elif 15 < npc.social < 30:
                 npc.social += 1
@@ -253,35 +255,62 @@ class GameState:
                 return random.choice([
                     f"\033[1;36;40m{self.player.username}, a few of us are thinking of going to the Toadstool Cafe for a brew. Wanna come?\033[0;37;48m",
                     f"\033[1;36;40m{self.player.username}! Can you help me with combat tomorrow? You make it look so easy!\033[0;37;48m"
+                    "\033[1;36;40mI really wanna go checkout the boat house at the lake!\033[0;37;48m",
+                    "\033[1;36;40mI nearly got so lost in the mist last week by the lake!\033[0;37;48m",
+                    "\033[1;36;40mHave you heard about the legend of the monster at the Elven Woods?\033[0;37;48m",
+                    "\033[1;36;40mHi! I have combat class later! Have you seen the goblin there? I hope we don't have to fight it!\033[0;37;48m",
+                    f"\033[1;36;40m{self.player.username}!!! Did you just see that gargoyle move? Creepy!\033[0;37;48m",
+                    f"\033[1;36;40m{self.player.username}! Do you know much about fighting slime?\033[0;37;48m",
+                    f"\033[1;36;40m What's up, {self.player.username}?\033[0;37;48m",
+                    f"\033[1;36;40m What's up, {self.player.username}? Have you ever been to the Toadstool Cafe? Their honey bread is so yummy!\033[0;37;48m",
+                    f"\033[1;36;40mHi, {self.player.username}!\033[0;37;48m",
+                    f"\033[1;36;40mHI, {self.player.username.upper()}!!! IHADTOOMUCHCOFFEEANDNOWIMBUZZING!!!!\033[0;37;48m",
+                    f"\033[1;36;40mIs it nap time yet?\033[0;37;48m"
                     ])
             else:
                 return random.choice([
                     f"{npc.name} nods at you. They're busy revising for an exam.",
-                    f"\033[1;36;40mHey, {self.player.username}! So sorry, can we chat later I've almost finished this homework!\033[0;37;48m"
+                    f"\033[1;36;40mHey, {self.player.username}! So sorry, can we chat later I've almost finished this homework!\033[0;37;48m",
+                    f"\033[1;36;40mHey, {self.player.username}! How's it going?\033[0;37;48m",
+                    f"\033[1;36;40mHi, {self.player.username}! That exam was so hard, glad it's over!\033[0;37;48m",
+                    f"\033[1;36;40m{self.player.username}! Brew at the Toadstool Cafe later?\033[0;37;48m",
+                    f"\033[1;36;40mAll good?\033[0;37;48m"
                 ])
 
         else:
-            return f"{key} is not in this room."
+            return f"\033[1;36;40m{key}\033[0;37;48m is not in this room."
 
     def attack(self,monster):
         key = monster.lower()
         monster = self.location.monster.get(key)
         if monster is not None:
             playerattack = self.player.attack - monster.defence
-            monster.hp -= playerattack
+
+            # Make sure you can attack the monster 
+            if playerattack <=0:
+                print(f"Be careful! This monster may be too strong for you!!!")
+            else:
+                monster.hp -= playerattack
 
             if monster.hp <= 0:
+                # Check if monster is holding items and move to inventory if yes
                 loot = monster.items.values()
-                print(loot)
+                # print(loot)
 
                 self.player.inventory += loot
                 
                 self.location.monster.pop(key,None)
                 self.player.earnPoints(monster.points)
-                return f" You have killed '{monster.name}'!\n You've earned {monster.points} points!\n"
+                return f" You have killed '\033[1;31;40m{monster.name}\033[0;37;48m'!\n You've earned {monster.points} points!\n"
             else:
                 monsterattack = monster.attack - self.player.defence
-                self.player.hp -= monsterattack
+
+                # Make sure monster can attack you
+                if monsterattack <= 0:
+                    print(f"This monster is no match for you! Its attack is too weak to hurt you.")
+                else:     
+                    self.player.hp -= monsterattack
+
                 if self.player.hp <= 0:
                     return f"You are dead! Game over!\n"
                 else:
@@ -312,6 +341,6 @@ class GameState:
         result = ""
         # print(self.location.directions.items())
         for k, v in self.location.directions.items():
-            result += f"{k} will take you to {self.rooms[v].name}.\n"
+            result += f"\033[1;32;40m{k}\033[0;37;48m will take you to \033[1;32;40m{self.rooms[v].name}\033[0;37;48m.\n"
             # print(self.rooms[v])
         return result

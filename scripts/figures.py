@@ -1,35 +1,38 @@
-import pyfiglet
-import pyfiglet as pf
+# import pyfiglet
+# import pyfiglet as pf
 
 # Welcome message
 
-res = pf.figlet_format("Welcome To Serpent Academy!", font="slant")
-styled_text = pyfiglet.figlet_format("serpent", font='doom')
-print(res)
+# res = pf.figlet_format("Welcome To Serpent Academy!", font="slant")
+# styled_text = pyfiglet.figlet_format("serpent", font='doom')
+# print(res)
 
 
 def wand():
-    print('''     
+    print("""     
+          
                    '* *
  _____________,_,*''*
 |_____________|_|
     
-    ''')
-wand()
+    """)
+# wand()
 
 def sword():
-    print(''''
+    print("""
+          
         /|____________
 0|===|*|  ____________|
-        \| 
-        ''')
+        \\|
+          
+        """)
 
 
-sword()
+# sword()
 
 
 def school():
-    print('''         
+    print("""         
       
     |>>>                                                     |>>>
     |                    |>>>          |>>>                 |
@@ -49,17 +52,17 @@ def school():
     |      |           |     |||||||||     |           |      |
     |      |           |   I ||vvvvv|| I   |           |      |
 _-_-|______|-----------|_____||     ||_____|-----------|______|-_-_
-   /________\         /______||     ||______\         /________\
+   /________\         //______||     ||______\         /________\ 
 
        
-    ''')
+    """)
 
 
-school()
+# school()
 
 
 def books():
-    print('''
+    print("""
       ______ ______
     _/      Y      |
    // ~~ ~~ | ~~ ~  |
@@ -67,14 +70,14 @@ def books():
  //________.|.________||     
 `----------`-'----------'
     
-    ''')
+    """)
 
 
-books()
+# books()
 
 
 def tree():
-    print('''
+    print("""
 
        _-_             
    \/~~   ~~\/
@@ -84,43 +87,50 @@ def tree():
    ~  \| |/  ~
 _- -   | | _- _
   _ -  | |   - _
-      |/ \|       
-    ''')
+      |/ \|    
+             
+    """)
 
 
-tree()
+# tree()
 
 def woods():
-    print('''
+    print("""
+          
 ↟ ⍋ ꋧ ┈┈┈ ∘* ┈┈ 𐂂 ┈┈┈ *∘ ┈┈ ꋧ ⍋ ↟ 
          Elven  Woods
 ↟ ⍋ ꋧ ┈┈┈ ∘* ┈┈ 𐂂 ┈┈┈ *∘ ┈┈ ꋧ ⍋ ↟
-''')
+          
+""")
 
 
-woods()
+# woods()
 
 def lake():
-    print('''
+    print("""
+          
 ⋆.ೃ࿔.𖥔 ݁ ˖*:･༄, 𓊝⋆.ೃ࿔.𖥔
      Lucaria Lake
 ⋆.ೃ࿔.𖥔 ݁ ˖*:･༄, 𓊝⋆.ೃ࿔.𖥔
-    ''')
+          
+    """)
 
 
-lake()
+# lake()
 
 def courtyard():
-    print('''
+    print("""
     
      . ✦　˚. ★⋆. . ★⋆.
 　˚　✦　　Courtyard　. ★⋆.
 　　˚　. ★⋆. 　*　 ⋆. ..
     
-    ''')
-courtyard()
+    """)
+
+# courtyard()
+
 def boat():
-    print('''
+    print("""
                  ~.
                 / |`
                /  |
@@ -128,7 +138,6 @@ def boat():
             \----------/
     ~~~~~~~~~`~~~~~~~~~'~~~~~~~~~~~
 
-''')
+""")
 
-
-boat()
+# boat()
