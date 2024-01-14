@@ -12,6 +12,7 @@ def getUserList():
     usersaves = os.listdir(savesfolder) 
 
     usersaves.remove("ascii")
+    usersaves.remove("leaderboard.json")
 
     usernameList = []
     for x in usersaves:

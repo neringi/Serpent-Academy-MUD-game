@@ -13,6 +13,7 @@ from Monster import Monster
 from Equipment import Equipment
 from NPC import NPC
 from Leaderboard import Leaderboard
+import traceback
 
 gs = initialGame()
 lb = Leaderboard("resources/leaderboard.json")
@@ -219,7 +220,8 @@ if reply == "y":
             try:
                 gs = loadGame()
             except Exception as e:
-                print(e)
+                # print(repr(e))
+                traceback.print_exc()
                 continue
             
             clear()

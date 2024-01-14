@@ -5,6 +5,7 @@ from Equipment import Equipment
 from Room import Room
 from Item import Item
 from Monster import Monster
+from NPC import NPC
 # from example import *
 from GameState import GameState
 from adhoc import *
@@ -45,17 +46,15 @@ def loadGame():
     # print(gs.equipment.dominanthand)
     # print(loaded_game)
 
+    # Set current location room name
     startinglocation = loaded_game["location"]["name"]
-    # Load Current Location
-    # gs.location = Room(**loaded_game["location"])
-    
-    # print(gs.location)
 
     # Load Player
     gs.player = Player(**loaded_game["player"])
     # print(gs.player.username)
     # print(gs.player.inventory
     items = []
+
     # Load items in player's inventory
     for item in gs.player.inventory:
         items.append(Item(**item))
@@ -70,26 +69,43 @@ def loadGame():
         # Load items, monsters and npcs in rooms
         items = {}
         monsters = {}
-        # npcs = {}
+        npcs = {}
 
+        # Load Items in Rooms
         for itemkey, item in room["items"].items():
             items[itemkey] = Item(**item)
             # print(f" Itemkey is {itemkey}")
             # print(items)
 
+        # Load Monsters in Rooms
         for monsterkey, monster in room["monster"].items():
             monsters[monsterkey] = Monster(**monster)
             # print(type(monsters[monsterkey]))
             # print(monsters[monsterkey])
+            loot = {}
 
+        # Load Items in Monsters
+            for lootkey, l in monster["items"].items():
+                loot[lootkey] = Item(**l)
         
-        # for npckey, npc in room["npc"].items():
-        #     npcs[npckey] = NPC(**npc)
+            monsters[monsterkey].items = loot
+
+
+        # Load NPCs in Rooms
+        for npckey, npc in room["npc"].items():
+            npcs[npckey] = NPC(**npc)
+
+            loot = {}
+            for lootkey, l in npc["items"].items():
+                loot[lootkey] = Item(**l)
+        
+            npcs[npckey].items = loot
     
         rooms[key] = Room(**room)
 
         rooms[key].items = items
         rooms[key].monster = monsters
+        rooms[key].npc = npcs
         # for m in rooms[key].monster:
         #     print(type(m))
         #     print((m))
@@ -102,6 +118,7 @@ def loadGame():
         # print(f"Room monsters are {rooms[key].monster}")
     # print(rooms.keys())
     gs.location = rooms[startinglocation]
+    gs.rooms = rooms
     time.sleep(2)
     # clear()
     print_slow(f"Welcome back, {gs.player.username}! \nUse \033[1;32;40m'HELP'\033[0;37;48m option to remind you how to play. \n")
