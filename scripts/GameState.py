@@ -191,7 +191,7 @@ class GameState:
                     self.player.attack += item.attack
                     self.player.defence += item.defence
                     self.player.magic += item.magic
-                    return f"You previously wielded '\033[1;33;40m{equippeditem}\033[0;37;48m' which you put in your inventory. \n You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {preferredhand} hand!"
+                    return f"You previously wielded '\033[1;33;40m{equippeditem}\033[0;37;48m' which you put in your inventory. \n You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {otherhand} hand!"
                 
         else:
             return f"Cannot equip \033[1;33;40m{item.name}\033[0;37;48m!\n"
@@ -219,7 +219,7 @@ class GameState:
 
 
     def helpOption(self):
-        print("\nIf you want to travel between areas, use keyword \033[1;32;40m'MOVE'\033[0;37;48m followed by direction \033[1;32;40mLEFT, RIGHT, UP or DOWN.\033[0;37;48m \n\n \033[1;32;40m'WHERE AM I'\033[0;37;48m will show which area you are in. \n \033[1;32;40m'WHO AM I'\033[0;37;48m will show your stats. \n \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m will tell you more about the area you are in. \n \033[1;32;40m'TAKE X'\033[0;37;48m will let you pick up an item. \n \033[1;32;40m'ATTACK X'\033[0;37;48m will attack an enemy. \n \033[1;32;40m'EQUIP X'\033[0;37;48m will equip an item. \n \033[1;32;40m'UNEQUIP X'\033[0;37;48m will unequip an item. \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m will unequip everything. \n \033[1;32;40m'LIST ITEMS'\033[0;37;48m will list items in area. \n \033[1;32;40m'LIST INVENTORY'\033[0;37;48m will list items you have.\n \033[1;32;40m'LIST EQUIPMENT'\033[0;37;48m will list what you have equipped.\n \033[1;32;40m'LIST DIRECTIONS'\033[0;37;48m will list directions you can move. \n\n \033[1;32;40m'QUIT'\033[0;37;48m will quit the game.\n")
+        print("\nIf you want to travel between areas, use keyword \033[1;32;40m'MOVE'\033[0;37;48m followed by direction \033[1;32;40mLEFT, RIGHT, UP or DOWN.\033[0;37;48m \n\n \033[1;32;40m'WHERE AM I'\033[0;37;48m will show which area you are in. \n \033[1;32;40m'WHO AM I'\033[0;37;48m will show your stats. \n \033[1;32;40m'EXPLORE ROOM'\033[0;37;48m will tell you more about the area you are in. \n \033[1;32;40m'TAKE X'\033[0;37;48m will let you pick up an item. \n \033[1;32;40m'ATTACK X'\033[0;37;48m will attack an enemy. \n \033[1;32;40m'EQUIP X'\033[0;37;48m will equip an item. \n \033[1;32;40m'UNEQUIP X'\033[0;37;48m will unequip an item. \033[1;32;40m'UNEQUIP ALL'\033[0;37;48m will unequip everything. \n \033[1;32;40m'LIST ITEMS'\033[0;37;48m will list items in area. \n \033[1;32;40m'LIST INVENTORY'\033[0;37;48m will list items you have.\n \033[1;32;40m'LIST EQUIPMENT'\033[0;37;48m will list what you have equipped.\n \033[1;32;40m'LIST DIRECTIONS'\033[0;37;48m will list directions you can move. \n \033[1;32;40m'USE X'\033[0;37;48m will use a specified item.\n\n \033[1;32;40m'QUIT'\033[0;37;48m will quit the game.\n")
     
     def talkNPC(self,npc):
         key = npc.lower()
@@ -291,13 +291,16 @@ class GameState:
     def attack(self,monster):
         key = monster.lower()
         monster = self.location.monster.get(key)
+
         if monster is None: 
             return f"{key} is not in this room."
-        print(type(monster))
-        print(monster)
+        # print(type(monster))
+        # print(monster)
+
         playerattack = 0 if monster.defence >= self.player.attack else self.player.attack - monster.defence
         monsterattack = 0 if self.player.defence >= monster.attack else monster.attack - self.player.defence
         monster.hp -= playerattack
+
         if monster.hp <= 0:
             if monster.finalboss:
                 return "endgame"

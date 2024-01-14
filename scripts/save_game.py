@@ -53,14 +53,14 @@ def loadGame():
     gs.player = Player(**loaded_game["player"])
     # print(gs.player.username)
     # print(gs.player.inventory
-    items = []
+    playeritems = []
 
     # Load items in player's inventory
-    for item in gs.player.inventory:
-        items.append(Item(**item))
+    for playeritem in gs.player.inventory:
+        playeritems.append(Item(**playeritem))
         # print(f" Item is {item}")
         
-    gs.player.items = items
+    gs.player.items = playeritems
 
     # Load Rooms
     rooms = {}

@@ -134,7 +134,7 @@ def updateState(action):
 
         case "quit":
             # If User wants to quit, takes them back to menu
-            quit = input("Are you sure you want to quit? Any progress that was not saved will be lost. (y/n)")
+            quit = input("Are you sure you want to quit? (y/n)")
             if quit.lower().strip() == "y":
                 clear()
                 return True
