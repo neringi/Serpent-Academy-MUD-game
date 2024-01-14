@@ -45,8 +45,9 @@ def loadGame():
     # print(gs.equipment.dominanthand)
     # print(loaded_game)
 
+    startinglocation = loaded_game["location"]["name"]
     # Load Current Location
-    gs.location = Room(**loaded_game["location"])
+    # gs.location = Room(**loaded_game["location"])
     
     # print(gs.location)
 
@@ -78,6 +79,8 @@ def loadGame():
 
         for monsterkey, monster in room["monster"].items():
             monsters[monsterkey] = Monster(**monster)
+            # print(type(monsters[monsterkey]))
+            # print(monsters[monsterkey])
 
         
         # for npckey, npc in room["npc"].items():
@@ -87,6 +90,9 @@ def loadGame():
 
         rooms[key].items = items
         rooms[key].monster = monsters
+        # for m in rooms[key].monster:
+        #     print(type(m))
+        #     print((m))
         # rooms[key].npc = npcs
 
         
@@ -94,10 +100,11 @@ def loadGame():
         # print(f"room is {key}")
         # print(f"Room items are {rooms[key].items}")
         # print(f"Room monsters are {rooms[key].monster}")
-
+    # print(rooms.keys())
+    gs.location = rooms[startinglocation]
     time.sleep(2)
-    clear()
+    # clear()
     print_slow(f"Welcome back, {gs.player.username}! \nUse \033[1;32;40m'HELP'\033[0;37;48m option to remind you how to play. \n")
-
+    # input("asdf")
     return gs 
      

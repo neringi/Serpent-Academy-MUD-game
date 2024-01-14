@@ -12,9 +12,10 @@ from Item import Item
 from Monster import Monster
 from Equipment import Equipment
 from NPC import NPC
-
+from Leaderboard import Leaderboard
 
 gs = initialGame()
+lb = Leaderboard("resources/leaderboard.json")
 
 VALID_MOVES = ["left", "right", "up", "down"]
 
@@ -78,7 +79,22 @@ def updateState(action):
             if len(tokens) == 1:
                 print_slow("Who are you trying to attack? \n Type \033[1;32;40m'ATTACK'\033[0;37;48m followed by the name of the monster.")
             else:
-                display(gs.attack(tokens[1]))
+                attack = gs.attack(tokens[1])
+                if attack == "endgame":
+                    clear()
+                    print("Congratulations! You beat the game!")
+                    input("Press ENTER to go back to the main menu!")
+                    return True
+                if attack == "dead":
+                    clear()
+                    print("You died! The game beat you!")
+                    input("Press ENTER to go back to the main menu!")
+                    return True
+                else: 
+                    display(attack)
+
+
+            
 
         case "help":
             # HELP option
@@ -160,6 +176,9 @@ def userMoves():
                 # is a valid command, is an actionable verb, is composed of verb + noun
             shouldexit = updateState(userInput)
             if shouldexit:
+                lb.save_score(gs.player)
+                display("Saved score to leaderboard\n")
+                print(lb)
                 return
 
 
@@ -199,7 +218,8 @@ if reply == "y":
             print("Let's load your game from save file.")
             try:
                 gs = loadGame()
-            except:
+            except Exception as e:
+                print(e)
                 continue
             
             clear()
@@ -208,7 +228,8 @@ if reply == "y":
             userMoves()
 
         elif str(option).strip() == '3':
-            print("Leaderboard!")
+            print(lb)
+
 
         elif str(option).strip() == 'q':
             print("Bye!")

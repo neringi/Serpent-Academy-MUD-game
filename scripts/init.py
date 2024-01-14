@@ -16,15 +16,16 @@ def initialGame():
     trainingshield = Item("training shield","A wooden kite shield used by students while training.", 10, 0, 2, 0, True, "shield",0)
     stick = Item("wooden stick", "A wooden stick that's about as long as your arm. Not a very useful weapon.",0,1,1,0, True, "melee",0)
     commonpotion = Item("common potion","A flask of red liquid that heals 10HP.",5,0,0,0,False,"potion",10)
+    healthpotion = Item("common potion","A flask of red liquid that heals 50HP.",5,0,0,0,False,"potion",50)
     thornydagger = Item("thorny dagger", "A sharp, thorned dagger. A reward from the boatman",5,10,5,0,True,"melee",0)
-    healinghoneybread = Item("manuka honey bread", "A freshly baked slice of honey bread, Increases hp fully", 5,0,10,10,True,"potion",30)
-    strengthsoda = Item("extra strength potion", "A purple, sparkling soda that allows you to block damage",5,0,25,0,True,"potion",0)
+    healinghoneybread = Item("healing honey bread", "A freshly baked slice of honey bread, Increases hp fully", 5,0,10,10,True,"potion",30)
+    strengthsoda = Item("strength soda", "A purple, sparkling soda that allows you to block damage",5,0,25,0,True,"potion",0)
     glowberryshortcake = Item("glowberry shortcake", "A cake made from the finest glowberries, increases mp",5,0,0,10,True,"potion",0)
     lucarianshield = Item("lucarian shield", "A metal shield dropped by the Hydra, it is engraved with an aquarian language",25,0,25,0,True,"shield",0)
     sacredamulet = Item("sacred amulet", "A sacred amulet bestowed to you by Gaianthra, it has protective energy",25,0,25,25,True,"magic",0)
 
     # Define Monsters
-    trainingdummy = Monster("training dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
+    trainingdummy = Monster("Training Dummy","A training dummy used by students while learning to fight.",0,0,0,10,0,1,10)
     goblin = Monster("goblin","A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",15,5,0,15,0,2,25)
     imp = Monster("imp","Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",15,10,10,20,20,3,20)
     hydra = Monster("hydra", "A silver serpentine water monster with scaled skin and four heads",20,10,0,30,15,5,50)
@@ -35,6 +36,7 @@ def initialGame():
     swordfish = Monster("silver swordfish", "A fish with an actual sword for a nose",20,10,10,50,0,3,40)
     toxicfrog = Monster("toxic frog", "A frog that has adapted to the mystical lake environment",5,5,0,10,5,5,10)
     cyclops = Monster("cyclops","A towering tyrant armed with barbaric weaponry and one eye",10,5,0,25,0,5,25)
+    finalboss = Monster("Final Boss","Once you defeat it, you win the game!",0,0,0,10,0,1,100,True)
 
     # Define NPCs
     luna = NPC("Luna","Student of Serpent Academy. She seems chatty!","student")
@@ -62,36 +64,37 @@ def initialGame():
     crossroads = Room("Crossroads","A literal crossroad with a wooden sign that says: \n Elven Creek LEFT \n Elven Woods RIGHT \n Lucaria Lake UP. \n\n Enter the Woods at your own risk!!!")
     lake = Room("Lucaria Lake","Vast lake, Lucaria. You can see the sunlight reflecting off its surface. The view is rather nice! Up ahead you can see the boathouse.")
     boathouse = Room("The Boathouse", "This is the Lucaria lake boathouse.")
-    magiccafe = Room("The Toadstool Cafe", "A small cafe in Elven Creek, that many witches come to. It's famous for it's vast selection of brews.")
+    magiccafe = Room("The Toadstool Cafe", "The Toadstool Cafe is a small cafe in Elven Creek. Many witches come for it's vast selection of brews.")
     meadow = Room("The Meadows", "The meadows where many wildflowers bloom. Continuing travelling RIGHT will take you to Elven Woods.")
     elvenwoods = Room("The Elven Woods", "The woods are eerie and dangerous but beautiful. Careful not to venture too far in, you will certainly get lost!")
 
+
     rooms = {
-        "trainingroom": trainingroom,
-        "advtrainingroom": advtrainingroom,
-        "courtyard": courtyard,
-        "lecturehall": lecturehall,
-        "dungeon": dungeon,
-        "crossroads": crossroads,
-        "lake":lake, 
-        "boathouse": boathouse,
-        "magiccafe": magiccafe,
-        "meadow": magiccafe,
-        "elvenwoods": elvenwoods
+       trainingroom.name: trainingroom,
+        advtrainingroom.name: advtrainingroom,
+        courtyard.name: courtyard,
+        lecturehall.name: lecturehall,
+        dungeon.name: dungeon,
+        crossroads.name: crossroads,
+        lake.name:lake, 
+        boathouse.name: boathouse,
+        magiccafe.name: magiccafe,
+        meadow.name: meadow,
+        elvenwoods.name: elvenwoods
     }
 
     # Available directions for rooms defined
-    trainingroomDirections = {"left": "advtrainingroom","right": "courtyard"}
-    advtrainingroomDirections = {"right": "trainingroom"}
-    courtyardDirections = {"left": "trainingroom", "right": "lecturehall", "up": "crossroads", "down": "dungeon"}
-    dungeonDirections = {"up": "courtyard"}
-    lecturehallDirections = {"left": "courtyard"}
-    crossroadsDirections = {"left": "magiccafe", "right": "meadow", "up": "lake", "down": "courtyard"}
-    magiccafeDirections = {"right": "crossroads"}
-    meadowDirections = {"left": "crossroads", "right": "elvenwoods"}
-    elvenwoodsDirections = {"left": "meadow"}
-    lakeDirections = {"up": "boathouse", "down": "crossroads"}
-    boathouseDirections = {"down": "lake"}
+    trainingroomDirections = {"left": advtrainingroom.name,"right": courtyard.name}
+    advtrainingroomDirections = {"right": trainingroom.name}
+    courtyardDirections = {"left": trainingroom.name, "right": lecturehall.name, "up": crossroads.name, "down": dungeon.name}
+    dungeonDirections = {"up": courtyard.name}
+    lecturehallDirections = {"left": courtyard.name}
+    crossroadsDirections = {"left": magiccafe.name, "right": meadow.name, "up": lake.name, "down": courtyard.name}
+    magiccafeDirections = {"right": crossroads.name}
+    meadowDirections = {"left": crossroads.name, "right": elvenwoods.name}
+    elvenwoodsDirections = {"left": meadow.name}
+    lakeDirections = {"up": boathouse.name, "down": crossroads.name}
+    boathouseDirections = {"down": lake.name}
 
     # Link the directions for rooms
     trainingroom.directions = trainingroomDirections
@@ -109,17 +112,18 @@ def initialGame():
     # Link the items to rooms
     advtrainingroom.items = {"common potion": commonpotion}
     trainingroom.items = {"training sword": trainingsword, "training shield": trainingshield, "wooden stick": stick}
-    lake.items = {"Thorny Dagger": thornydagger, "Health Potion" : commonpotion, "Lucarian Shield":lucarianshield}
-    elvenwoods.items = {"Sacred Amulet": sacredamulet, "Health Potion" : commonpotion}
-    magiccafe.items = {"Healing Honey Bread": healinghoneybread, "Strength Soda": strengthsoda, "Glowberry Shortcake": glowberryshortcake}
+    lake.items = {"thorny dagger": thornydagger, "health potion" : healthpotion, "lucarian shield":lucarianshield}
+    elvenwoods.items = {"sacred amulet": sacredamulet, "health potion" : healthpotion}
+    magiccafe.items = {"healing honey bread": healinghoneybread, "strength soda": strengthsoda, "glowberry shortcake": glowberryshortcake}
 
     # Link monsters to rooms
     trainingroom.monster = {"training dummy": trainingdummy}
     advtrainingroom.monster = {"goblin": goblin, "cyclops": cyclops}
     meadow.monster = {"imp": imp}
-    lake.monster = {"hydra": hydra, "swordfish": swordfish, "toxic frog": toxicfrog}
-    elvenwoods.monster = {"gaianthra": gaianthra, "spectraloak": spectraloak, "cackling crow":cacklingcrow}
-    dungeon.monster = {"slime": slime}
+    crossroads.monster = {"slime": slime}
+    lake.monster = {"hydra": hydra, "silver swordfish": swordfish, "toxic frog": toxicfrog}
+    elvenwoods.monster = {"gaianthra": gaianthra, "spectral oak": spectraloak, "cackling crow":cacklingcrow}
+    dungeon.monster = {"final boss": finalboss}
 
     # Link items to monsters
     goblin.items = {"common potion": commonpotion}
@@ -128,11 +132,12 @@ def initialGame():
     gaianthra.items = {"sacred amulet": sacredamulet}
     cacklingcrow.items = { "common potion":commonpotion}
     hydra.items = {"lucarian shield":lucarianshield}
+    
 
     # Link NPCs to rooms
-    courtyard.npc = {"luna": luna, "caspian": caspian, "orion": orion, "thorne": thorne, "fae": fae}
+    courtyard.npc = {"luna": luna, "caspian": caspian, "thorne": thorne, "fae": fae}
     trainingroom.npc = {"calista": calista}
-    lecturehall.npc = {"lyra" : lyra}
+    lecturehall.npc = {"lyra" : lyra, "orion": orion}
     magiccafe.npc = {"rune" : rune}
 
 
