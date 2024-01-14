@@ -231,7 +231,11 @@ if reply == "y":
             userMoves()
 
         elif str(option).strip() == '3':
+
+            clear()
             print(lb)
+            input("Type ENTER to return to the Main Menu.")
+            clear()
 
 
         elif str(option).strip() == 'q':

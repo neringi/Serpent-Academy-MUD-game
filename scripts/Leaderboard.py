@@ -22,7 +22,7 @@ class Leaderboard:
 
     def __str__(self):
         with open(self.filename, 'r') as f:
-            str = "Leaderboard:"
+            str = "\033[1;37;40m------- Leaderboard -------\033[0;37;48m"
             text = f.read()
             if len(text) == 0:
                 return f"{str}\nNo Entries"
@@ -30,6 +30,7 @@ class Leaderboard:
             s = sorted(file, key=lambda u: u["score"], reverse=True)
             if type(file) is not list:
                 return f"Error reading file, is {self.filename} corrupted?"
-            for score in s:
-                str += f"\n{score['name']} - {score['score']}"
+            for idx, score in enumerate(s):
+                str += f"\n      \033[1;37;40m({idx+1}) {score['name']} - {score['score']}\033[0;37;48m"
+            str += "\n\033[1;37;40m---------------------------\033[0;37;48m"
             return str
