@@ -52,7 +52,7 @@ def loadGame():
     # Load Player
     gs.player = Player(**loaded_game["player"])
     # print(gs.player.username)
-    # print(gs.player.inventory
+    # print(gs.player.inventory)
     playeritems = []
 
     # Load items in player's inventory
@@ -60,7 +60,7 @@ def loadGame():
         playeritems.append(Item(**playeritem))
         # print(f" Item is {item}")
         
-    gs.player.items = playeritems
+    gs.player.inventory = playeritems
 
     # Load Rooms
     rooms = {}
@@ -117,11 +117,11 @@ def loadGame():
         # print(f"Room items are {rooms[key].items}")
         # print(f"Room monsters are {rooms[key].monster}")
     # print(rooms.keys())
+
     gs.location = rooms[startinglocation]
     gs.rooms = rooms
     time.sleep(2)
-    # clear()
+    clear()
     print_slow(f"Welcome back, {gs.player.username}! \nUse \033[1;32;40m'HELP'\033[0;37;48m option to remind you how to play. \n")
-    # input("asdf")
     return gs 
      

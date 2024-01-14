@@ -1,16 +1,86 @@
 {
     "equipment": {
-        "dominanthand": null,
+        "dominanthand": {
+            "attack": 2,
+            "defence": 0,
+            "description": "A wooden sword used by students while training.",
+            "hp": 0,
+            "itemtype": "melee",
+            "magic": 0,
+            "name": "Training Sword",
+            "value": 10,
+            "wieldable": true
+        },
         "nondominanthand": null
     },
     "location": {
-        "description": "This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.",
+        "description": "This is the advanced training room. You should not stick around here unless you know how to fight!",
         "directions": {
-            "left": "Advanced Training Room",
-            "right": "The Courtyard"
+            "right": "Training Room"
         },
         "items": {
-            "training shield": {
+            "common potion": {
+                "attack": 0,
+                "defence": 0,
+                "description": "A flask of red liquid that heals 10HP.",
+                "hp": 10,
+                "itemtype": "potion",
+                "magic": 0,
+                "name": "Common Potion",
+                "value": 5,
+                "wieldable": false
+            }
+        },
+        "monster": {
+            "cyclops": {
+                "attack": 10,
+                "defence": 5,
+                "description": "A towering tyrant armed with barbaric weaponry and one eye",
+                "finalboss": false,
+                "hp": 25,
+                "items": {},
+                "level": 5,
+                "magic": 0,
+                "mp": 0,
+                "name": "Cyclops",
+                "points": 25
+            },
+            "goblin": {
+                "attack": 15,
+                "defence": 5,
+                "description": "A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",
+                "finalboss": false,
+                "hp": 8,
+                "items": {
+                    "common potion": {
+                        "attack": 0,
+                        "defence": 0,
+                        "description": "A flask of red liquid that heals 10HP.",
+                        "hp": 10,
+                        "itemtype": "potion",
+                        "magic": 0,
+                        "name": "Common Potion",
+                        "value": 5,
+                        "wieldable": false
+                    }
+                },
+                "level": 2,
+                "magic": 0,
+                "mp": 0,
+                "name": "Goblin",
+                "points": 25
+            }
+        },
+        "name": "Advanced Training Room",
+        "npc": {}
+    },
+    "player": {
+        "attack": 12,
+        "defence": 5,
+        "favfood": "banana peels",
+        "hp": 90,
+        "inventory": [
+            {
                 "attack": 0,
                 "defence": 2,
                 "description": "A wooden kite shield used by students while training.",
@@ -20,70 +90,15 @@
                 "name": "Training Shield",
                 "value": 10,
                 "wieldable": true
-            },
-            "wooden stick": {
-                "attack": 1,
-                "defence": 1,
-                "description": "A wooden stick that's about as long as your arm. Not a very useful weapon.",
-                "hp": 0,
-                "itemtype": "melee",
-                "magic": 0,
-                "name": "Wooden Stick",
-                "value": 0,
-                "wieldable": true
-            }
-        },
-        "monster": {
-            "training dummy": {
-                "attack": 0,
-                "defence": 0,
-                "description": "A training dummy used by students while learning to fight.",
-                "finalboss": false,
-                "hp": 10,
-                "items": {},
-                "level": 1,
-                "magic": 0,
-                "mp": 0,
-                "name": "Training Dummy",
-                "points": 10
-            }
-        },
-        "name": "Training Room",
-        "npc": {
-            "calista": {
-                "description": "Student of Serpent Academy. She seems to be in a good mood!",
-                "items": {},
-                "name": "Calista",
-                "social": 0,
-                "type": "student"
-            }
-        }
-    },
-    "player": {
-        "attack": 10,
-        "defence": 5,
-        "favfood": "banana peels",
-        "hp": 100,
-        "inventory": [
-            {
-                "attack": 2,
-                "defence": 0,
-                "description": "A wooden sword used by students while training.",
-                "hp": 0,
-                "itemtype": "melee",
-                "magic": 0,
-                "name": "Training Sword",
-                "value": 10,
-                "wieldable": true
             }
         ],
-        "level": 1,
-        "magic": 5,
+        "level": 3,
+        "magic": 7,
         "mp": 100,
         "otherhand": "right",
-        "points": 0,
+        "points": 20,
         "preferredhand": "left",
-        "username": "test2"
+        "username": "ringo"
     },
     "rooms": {
         "Advanced Training Room": {
@@ -123,7 +138,7 @@
                     "defence": 5,
                     "description": "A three foot grotesque fairy with razor sharp teeth, pointy ears and green skin.\n Will attack if provoked!",
                     "finalboss": false,
-                    "hp": 15,
+                    "hp": 8,
                     "items": {
                         "common potion": {
                             "attack": 0,
@@ -577,17 +592,6 @@
                 "right": "The Courtyard"
             },
             "items": {
-                "training shield": {
-                    "attack": 0,
-                    "defence": 2,
-                    "description": "A wooden kite shield used by students while training.",
-                    "hp": 0,
-                    "itemtype": "shield",
-                    "magic": 0,
-                    "name": "Training Shield",
-                    "value": 10,
-                    "wieldable": true
-                },
                 "wooden stick": {
                     "attack": 1,
                     "defence": 1,
@@ -600,28 +604,14 @@
                     "wieldable": true
                 }
             },
-            "monster": {
-                "training dummy": {
-                    "attack": 0,
-                    "defence": 0,
-                    "description": "A training dummy used by students while learning to fight.",
-                    "finalboss": false,
-                    "hp": 10,
-                    "items": {},
-                    "level": 1,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Training Dummy",
-                    "points": 10
-                }
-            },
+            "monster": {},
             "name": "Training Room",
             "npc": {
                 "calista": {
                     "description": "Student of Serpent Academy. She seems to be in a good mood!",
                     "items": {},
                     "name": "Calista",
-                    "social": 0,
+                    "social": 11,
                     "type": "student"
                 }
             }

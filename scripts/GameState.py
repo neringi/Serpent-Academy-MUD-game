@@ -1,6 +1,7 @@
 import json
 import os.path
 import random
+from figures import sword
 class GameState:
     def __str__(self):
         return f""
@@ -129,6 +130,7 @@ class GameState:
                     self.player.defence += item.defence
                     self.player.magic += item.magic
 
+                    sword()
                     return f"You have successfully wielded \033[1;33;40m{item.name}\033[0;37;48m in your {preferredhand} hand!"
             
                 else: # if weapon already equipped in dominant hand
@@ -293,12 +295,13 @@ class GameState:
         monster = self.location.monster.get(key)
 
         if monster is None: 
-            return f"{key} is not in this room."
+            return f"\033[1;31;40m{key}\033[0;37;48m is not in this room."
         # print(type(monster))
         # print(monster)
 
         playerattack = 0 if monster.defence >= self.player.attack else self.player.attack - monster.defence
         monsterattack = 0 if self.player.defence >= monster.attack else monster.attack - self.player.defence
+        
         monster.hp -= playerattack
 
         if monster.hp <= 0:
@@ -315,7 +318,6 @@ class GameState:
             self.player.earnPoints(monster.points)
             return f" You have killed '\033[1;31;40m{monster.name}\033[0;37;48m'!\n You've earned {monster.points} points!\n"
         
-        monsterattack = monster.attack - self.player.defence
         self.player.hp -= monsterattack
 
         if self.player.hp <= 0:
@@ -327,7 +329,7 @@ class GameState:
         if monsterattack == 0:
             result += f"This monster is no match for you! Its attack is too weak to hurt you.\n"
         
-        return f"${result}You attacked {monster.name} for {playerattack} HP. \nThe {monster.name} attacked you for {monsterattack} HP. \n You have {self.player.hp} HP left.\n"
+        return f"{result}You attacked \033[1;31;40m{monster.name} \033[0;37;48m for {playerattack} HP. \nThe \033[1;31;40m{monster.name}\033[0;37;48m attacked you for {monsterattack} HP. \n You have {self.player.hp} HP left.\n"
 
         
     def toJSON(self):

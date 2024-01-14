@@ -177,6 +177,7 @@ def userMoves():
                 # is a valid command, is an actionable verb, is composed of verb + noun
             shouldexit = updateState(userInput)
             if shouldexit:
+                gs.saveGame()
                 lb.save_score(gs.player)
                 display("Saved score to leaderboard\n")
                 print(lb)
