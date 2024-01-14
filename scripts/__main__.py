@@ -2,7 +2,7 @@ from create_user import *
 import time
 from init import initialGame
 from adhoc import *
-from save_game import loadGame
+from load_game import loadGame
 from figures import *
 
 from GameState import GameState
@@ -204,7 +204,7 @@ if reply == "y":
 
     while True:
         print_slow("Please select from the following options:")
-        print("\n 1. Create New Game \n 2. Load Game \n 3. Leaderboard \n 'q' to Quit")
+        print("\n 1. Create New Game \n 2. Load Game \n 3. Leaderboard \n 'q' to Quit \n\n type 'reset' to reset leaderboard!")
         option = input("\n>")
 
         if str(option.strip()) == '1':
@@ -221,8 +221,8 @@ if reply == "y":
             try:
                 gs = loadGame()
             except Exception as e:
-                # print(repr(e))
-                traceback.print_exc()
+                if "No saved file" not in str(e):
+                    traceback.print_exc()
                 continue
             
             clear()
@@ -241,6 +241,10 @@ if reply == "y":
         elif str(option).strip() == 'q':
             print("Bye!")
             break
+
+        elif str(option).strip().lower() == "reset":
+            lb.reset()
+            print("Leaderboard has been reset!")
 
         else: print("Invalid choice! \nPlease type '1' for New Game, \n'2' to load a game or \n'3' for the leaderboard.")
 

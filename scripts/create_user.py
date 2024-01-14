@@ -2,6 +2,7 @@ import time
 import os.path
 from adhoc import *
 from Player import *
+from figures import snake
 
 
 # Check save files in resources folder and save all usernames in a list
@@ -11,7 +12,6 @@ def getUserList():
     
     usersaves = os.listdir(savesfolder) 
 
-    usersaves.remove("ascii")
     usersaves.remove("leaderboard.json")
 
     usernameList = []
@@ -28,6 +28,7 @@ def makeCharacter(newUser):
     
     while True:
 
+        snake()
         option1 = input(f"Do you run or do you prepare to fight? (run/fight)")
 
         print_slow(f"\033[1;36;40mFear not, I will not harm you, {newUser}! I'm here to ask you some questions.\033[0;37;48m\n")
@@ -39,7 +40,7 @@ def makeCharacter(newUser):
             
         if select1 == '1' : 
             while True:
-                domhand = input("Are you left-handed or right-handed? (left/right)\n")   
+                domhand = input("\033[1;36;40mAre you left-handed or right-handed?\033[0;37;48m (left/right)\n>")   
 
                 if domhand.lower().strip() == "left":
                     nondomhand = "right"
@@ -48,9 +49,9 @@ def makeCharacter(newUser):
                     nondomhand = "left"
                     break
                 else: 
-                    print("Pick left or right!")
+                    print("Pick left or right!!!")
 
-            favfood = input("Last, but not least! What is your favourite food?\n")
+            favfood = input("\033[1;36;40mLast, but not least! What is your favourite food?\033[0;37;48m\n>")
 
             if favfood.lower().strip() == "":
                 print_slow("You did not tell me so I'm going to say it is \033[1;33;40mbanana peels\033[0;37;48m! HA!!!")

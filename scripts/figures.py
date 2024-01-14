@@ -29,6 +29,18 @@ def sword():
 
 
 # sword()
+    
+# REF: https://ascii.co.uk/art/snake
+def snake():
+    print(r"""
+    --..,_                     _,.--.
+       `'.'.                .'`__ o  `;__.
+          '.'.            .'.'`  '---'`  `
+            '.`'--....--'`.'
+              `'--....--'`
+          """)
+    
+# snake()
 
 
 def school():
