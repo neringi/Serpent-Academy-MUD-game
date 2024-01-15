@@ -21,8 +21,8 @@ def loadGame():
     file_exists = os.path.isfile(usersavepath)
     # invert if statement
     if not file_exists:
-        print("Sorry, there are no save files for that username. \n Check the username is correct or create a new game!")
-        raise Exception("No saved file")
+        print("Sorry, there are no save files for that username. \n Check the username is correct or create a new game!\n \n ")
+        raise Exception("No saved file \n")
     print_slow("File loading...")
 
     # Opening JSON file

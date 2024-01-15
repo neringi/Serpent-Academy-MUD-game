@@ -1,6 +1,16 @@
 {
     "equipment": {
-        "dominanthand": null,
+        "dominanthand": {
+            "attack": 2,
+            "defence": 0,
+            "description": "A wooden sword used by students while training.",
+            "hp": 0,
+            "itemtype": "melee",
+            "magic": 0,
+            "name": "Training Sword",
+            "value": 10,
+            "wieldable": true
+        },
         "nondominanthand": null
     },
     "location": {
@@ -10,28 +20,6 @@
             "right": "The Courtyard"
         },
         "items": {
-            "training shield": {
-                "attack": 0,
-                "defence": 2,
-                "description": "A wooden kite shield used by students while training.",
-                "hp": 0,
-                "itemtype": "shield",
-                "magic": 0,
-                "name": "Training Shield",
-                "value": 10,
-                "wieldable": true
-            },
-            "training sword": {
-                "attack": 2,
-                "defence": 0,
-                "description": "A wooden sword used by students while training.",
-                "hp": 0,
-                "itemtype": "melee",
-                "magic": 0,
-                "name": "Training Sword",
-                "value": 10,
-                "wieldable": true
-            },
             "wooden stick": {
                 "attack": 1,
                 "defence": 1,
@@ -44,21 +32,7 @@
                 "wieldable": true
             }
         },
-        "monster": {
-            "training dummy": {
-                "attack": 0,
-                "defence": 0,
-                "description": "A training dummy used by students while learning to fight.",
-                "finalboss": false,
-                "hp": 10,
-                "items": {},
-                "level": 1,
-                "magic": 0,
-                "mp": 0,
-                "name": "Training Dummy",
-                "points": 10
-            }
-        },
+        "monster": {},
         "name": "Training Room",
         "npc": {
             "calista": {
@@ -71,18 +45,30 @@
         }
     },
     "player": {
-        "attack": 10,
-        "defence": 5,
+        "attack": 12,
+        "defence": 6,
         "favfood": "banana peels",
         "hp": 100,
-        "inventory": [],
-        "level": 1,
+        "inventory": [
+            {
+                "attack": 0,
+                "defence": 2,
+                "description": "A wooden kite shield used by students while training.",
+                "hp": 0,
+                "itemtype": "shield",
+                "magic": 0,
+                "name": "Training Shield",
+                "value": 10,
+                "wieldable": true
+            }
+        ],
+        "level": 2,
         "magic": 5,
         "mp": 100,
         "otherhand": "right",
-        "points": 0,
+        "points": 10,
         "preferredhand": "left",
-        "username": "fdsa"
+        "username": "test"
     },
     "rooms": {
         "Advanced Training Room": {
@@ -115,7 +101,7 @@
                     "magic": 0,
                     "mp": 0,
                     "name": "Cyclops",
-                    "points": 25
+                    "points": 30
                 },
                 "goblin": {
                     "attack": 15,
@@ -179,31 +165,43 @@
                     "magic": 0,
                     "mp": 0,
                     "name": "Slime",
-                    "points": 5
+                    "points": 30
                 }
             },
             "name": "Crossroads",
             "npc": {}
         },
         "Dungeon": {
-            "description": "It's cold and wet here underground. The long corridor leads to a single locked door where a sentient door knock is looking at you.",
+            "description": "It's cold and wet here underground. The long corridor leads to a room where the final boss is waiting. There's an item displayed to your left.",
             "directions": {
                 "up": "The Courtyard"
             },
-            "items": {},
+            "items": {
+                "unfair advantage": {
+                    "attack": 100,
+                    "defence": 100,
+                    "description": "If you like cheating, you will use this!",
+                    "hp": 0,
+                    "itemtype": "melee",
+                    "magic": 0,
+                    "name": "Unfair Advantage",
+                    "value": 1000,
+                    "wieldable": true
+                }
+            },
             "monster": {
                 "final boss": {
-                    "attack": 0,
-                    "defence": 0,
-                    "description": "Once you defeat it, you win the game!",
+                    "attack": 30,
+                    "defence": 30,
+                    "description": "It manifests as your worst fear! Once you defeat it, you win the game!",
                     "finalboss": true,
-                    "hp": 10,
+                    "hp": 100,
                     "items": {},
                     "level": 1,
                     "magic": 0,
                     "mp": 0,
                     "name": "Final Boss",
-                    "points": 100
+                    "points": 200
                 }
             },
             "name": "Dungeon",
@@ -327,8 +325,8 @@
                     "points": 40
                 },
                 "toxic frog": {
-                    "attack": 5,
-                    "defence": 5,
+                    "attack": 10,
+                    "defence": 10,
                     "description": "A frog that has adapted to the mystical lake environment",
                     "finalboss": false,
                     "hp": 10,
@@ -337,7 +335,7 @@
                     "magic": 0,
                     "mp": 5,
                     "name": "Toxic Frog",
-                    "points": 10
+                    "points": 15
                 }
             },
             "name": "Lucaria Lake",
@@ -448,7 +446,7 @@
                     "magic": 0,
                     "mp": 0,
                     "name": "Cackling Crow",
-                    "points": 5
+                    "points": 20
                 },
                 "gaianthra": {
                     "attack": 25,
@@ -486,7 +484,7 @@
                     "magic": 0,
                     "mp": 5,
                     "name": "Spectral Oak",
-                    "points": 15
+                    "points": 20
                 }
             },
             "name": "The Elven Woods",
@@ -511,7 +509,7 @@
                     "magic": 10,
                     "mp": 20,
                     "name": "Imp",
-                    "points": 20
+                    "points": 30
                 }
             },
             "name": "The Meadows",
@@ -576,28 +574,6 @@
                 "right": "The Courtyard"
             },
             "items": {
-                "training shield": {
-                    "attack": 0,
-                    "defence": 2,
-                    "description": "A wooden kite shield used by students while training.",
-                    "hp": 0,
-                    "itemtype": "shield",
-                    "magic": 0,
-                    "name": "Training Shield",
-                    "value": 10,
-                    "wieldable": true
-                },
-                "training sword": {
-                    "attack": 2,
-                    "defence": 0,
-                    "description": "A wooden sword used by students while training.",
-                    "hp": 0,
-                    "itemtype": "melee",
-                    "magic": 0,
-                    "name": "Training Sword",
-                    "value": 10,
-                    "wieldable": true
-                },
                 "wooden stick": {
                     "attack": 1,
                     "defence": 1,
@@ -610,21 +586,7 @@
                     "wieldable": true
                 }
             },
-            "monster": {
-                "training dummy": {
-                    "attack": 0,
-                    "defence": 0,
-                    "description": "A training dummy used by students while learning to fight.",
-                    "finalboss": false,
-                    "hp": 10,
-                    "items": {},
-                    "level": 1,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Training Dummy",
-                    "points": 10
-                }
-            },
+            "monster": {},
             "name": "Training Room",
             "npc": {
                 "calista": {
