@@ -344,7 +344,7 @@ class GameState:
         dirname = os.path.dirname(os.path.dirname(__file__))
         # print(dirname)
         savefilepath = dirname + '/resources/' + self.player.username +'.json'
-        print(savefilepath)
+        # print(savefilepath)
 
         # file_exists = os.path.isfile(savefilepath)
         # if file_exists:

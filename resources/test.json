@@ -1,52 +1,31 @@
 {
     "equipment": {
         "dominanthand": {
-            "attack": 2,
-            "defence": 0,
-            "description": "A wooden sword used by students while training.",
+            "attack": 100,
+            "defence": 100,
+            "description": "If you like cheating, you will use this!",
             "hp": 0,
             "itemtype": "melee",
             "magic": 0,
-            "name": "Training Sword",
-            "value": 10,
+            "name": "Unfair Advantage",
+            "value": 1000,
             "wieldable": true
         },
         "nondominanthand": null
     },
     "location": {
-        "description": "This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.",
+        "description": "It's cold and wet here underground. The long corridor leads to a room where the final boss is waiting. There's an item displayed to your left.",
         "directions": {
-            "left": "Advanced Training Room",
-            "right": "The Courtyard"
+            "up": "The Courtyard"
         },
-        "items": {
-            "wooden stick": {
-                "attack": 1,
-                "defence": 1,
-                "description": "A wooden stick that's about as long as your arm. Not a very useful weapon.",
-                "hp": 0,
-                "itemtype": "melee",
-                "magic": 0,
-                "name": "Wooden Stick",
-                "value": 0,
-                "wieldable": true
-            }
-        },
+        "items": {},
         "monster": {},
-        "name": "Training Room",
-        "npc": {
-            "calista": {
-                "description": "Student of Serpent Academy. She seems to be in a good mood!",
-                "items": {},
-                "name": "Calista",
-                "social": 0,
-                "type": "student"
-            }
-        }
+        "name": "Dungeon",
+        "npc": {}
     },
     "player": {
-        "attack": 12,
-        "defence": 6,
+        "attack": 116,
+        "defence": 114,
         "favfood": "banana peels",
         "hp": 100,
         "inventory": [
@@ -60,13 +39,24 @@
                 "name": "Training Shield",
                 "value": 10,
                 "wieldable": true
+            },
+            {
+                "attack": 2,
+                "defence": 0,
+                "description": "A wooden sword used by students while training.",
+                "hp": 0,
+                "itemtype": "melee",
+                "magic": 0,
+                "name": "Training Sword",
+                "value": 10,
+                "wieldable": true
             }
         ],
-        "level": 2,
-        "magic": 5,
+        "level": 22,
+        "magic": 11,
         "mp": 100,
         "otherhand": "right",
-        "points": 10,
+        "points": 210,
         "preferredhand": "left",
         "username": "test"
     },
@@ -176,34 +166,8 @@
             "directions": {
                 "up": "The Courtyard"
             },
-            "items": {
-                "unfair advantage": {
-                    "attack": 100,
-                    "defence": 100,
-                    "description": "If you like cheating, you will use this!",
-                    "hp": 0,
-                    "itemtype": "melee",
-                    "magic": 0,
-                    "name": "Unfair Advantage",
-                    "value": 1000,
-                    "wieldable": true
-                }
-            },
-            "monster": {
-                "final boss": {
-                    "attack": 30,
-                    "defence": 30,
-                    "description": "It manifests as your worst fear! Once you defeat it, you win the game!",
-                    "finalboss": true,
-                    "hp": 100,
-                    "items": {},
-                    "level": 1,
-                    "magic": 0,
-                    "mp": 0,
-                    "name": "Final Boss",
-                    "points": 200
-                }
-            },
+            "items": {},
+            "monster": {},
             "name": "Dungeon",
             "npc": {}
         },
