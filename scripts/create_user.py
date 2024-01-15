@@ -22,7 +22,7 @@ def getUserList():
     return usernameList
 
 
-
+# Character creation
 def makeCharacter(newUser):
     print_slow(f"You're sleeping peacefully in your bed before a noise reaches you.\n...\nSomeone clears their throat with a quick 'Ahem!'\nYou're awake and when you open your eyes you realise...\n... you're not in your bed!\nYou're standing under a lamp overhead, the only source of light...\n\"\033[1;36;40mWelcome, {newUser}!\033[0;37;48m\" a hissy voice greets you. \nA large serpent with golden eyes and shiny scales slowly slithers into view.\n\n")
     
