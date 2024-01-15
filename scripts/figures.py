@@ -1,12 +1,12 @@
-# import pyfiglet
-# import pyfiglet as pf
 
-# Welcome message
-
-# res = pf.figlet_format("Welcome To Serpent Academy!", font="slant")
-# styled_text = pyfiglet.figlet_format("serpent", font='doom')
-# print(res)
-
+def logo():
+    print(r"""
+ ________         ____                      __    ___              __              
+/_  __/ /  ___   / __/__ _______  ___ ___  / /_  / _ |_______ ____/ /__ __ _  __ __
+ / / / _ \/ -_) _\ \/ -_) __/ _ \/ -_) _ \/ __/ / __ / __/ _ `/ _  / -_)  ' \/ // /
+/_/ /_//_/\__/ /___/\__/_/ / .__/\__/_//_/\__/ /_/ |_\__/\_,_/\_,_/\__/_/_/_/\_, / 
+                          /_/                                               /___/  
+          """)
 
 def wand():
     print(r"""     

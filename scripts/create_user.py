@@ -128,13 +128,17 @@ def createNewUser():
                 clear()
                 
                 if newUser.lower() not in lower_current_users:
-                    usernameList.append(newUser)
-                    print(f"Your username will be '\033[1;36;40m{newUser}\033[0;37;48m'!")
-                    # print(f"Current users: {usernameList}")
-
-                    return makeCharacter(newUser)
+                    if newUser.lower() in ["leaderboard"]:
+                        print("Are you purposefully trying to break the game? That's a bit mean! \n You cannot name yourself 'Leaderboard'!\n")
+                        time.sleep(2.5)
+                    else:
+                        usernameList.append(newUser)
+                        print(f"Your username will be '\033[1;36;40m{newUser}\033[0;37;48m'!")
+                        # print(f"Current users: {usernameList}")
+                        return makeCharacter(newUser)
                 else:
                     print(f"Username '{newUser}' is already taken. Please think of a different username.")
+                    time.sleep(2)
                 
 
             # If usernameList is empty, create a new user.

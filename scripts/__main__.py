@@ -188,8 +188,9 @@ def userMoves():
 clear()
 print_slow("V1.0 Jan 2024\n")
 print_slow("Created by Mesha and Neringa\n")
+logo()
+print_slow("Welcome to the Serpent Academy, Adventurer!\n\n")
 school()
-print_slow("Welcome to the Serpent Academy!\n\n")
 time.sleep(1)
 
 reply = input("Would you like to see the game menu? (y/n) \n>").lower().strip()

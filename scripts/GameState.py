@@ -301,12 +301,11 @@ class GameState:
 
         playerattack = 0 if monster.defence >= self.player.attack else self.player.attack - monster.defence
         monsterattack = 0 if self.player.defence >= monster.attack else monster.attack - self.player.defence
-        
+
         monster.hp -= playerattack
 
         if monster.hp <= 0:
-            if monster.finalboss:
-                return "endgame"
+
             
             # Check if monster is holding items and move to inventory if yes
             loot = monster.items.values()
@@ -316,7 +315,12 @@ class GameState:
             
             self.location.monster.pop(key,None)
             self.player.earnPoints(monster.points)
-            return f" You have killed '\033[1;31;40m{monster.name}\033[0;37;48m'!\n You've earned {monster.points} points!\n"
+
+            if monster.finalboss:
+                print(f"You have killed '\033[1;31;40m{monster.name}\033[0;37;48m'!\n You've earned {monster.points} points!\n")
+                return "endgame"
+            return f"You have killed '\033[1;31;40m{monster.name}\033[0;37;48m'!\n You've earned {monster.points} points!\n"
+        
         
         self.player.hp -= monsterattack
 
