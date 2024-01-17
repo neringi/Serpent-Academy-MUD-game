@@ -1,0 +1,540 @@
+{
+    "equipment": {
+        "dominanthand": {
+            "attack": 100,
+            "defence": 100,
+            "description": "If you like cheating, you will use this!",
+            "hp": 0,
+            "itemtype": "melee",
+            "magic": 0,
+            "name": "Unfair Advantage",
+            "value": 1000,
+            "wieldable": true
+        },
+        "nondominanthand": null
+    },
+    "location": {
+        "description": "It's cold and wet here underground. The long corridor leads to a room where the final boss is waiting. There's an item displayed to your left.",
+        "directions": {
+            "up": "The Courtyard"
+        },
+        "items": {},
+        "monster": {},
+        "name": "Dungeon",
+        "npc": {}
+    },
+    "player": {
+        "attack": 115,
+        "defence": 116,
+        "favfood": "chocolate",
+        "hp": 90,
+        "inventory": [
+            {
+                "attack": 0,
+                "defence": 0,
+                "description": "A flask of red liquid that heals 10HP.",
+                "hp": 10,
+                "itemtype": "potion",
+                "magic": 0,
+                "name": "Common Potion",
+                "value": 5,
+                "wieldable": false
+            },
+            {
+                "attack": 2,
+                "defence": 0,
+                "description": "A wooden sword used by students while training.",
+                "hp": 0,
+                "itemtype": "melee",
+                "magic": 0,
+                "name": "Training Sword",
+                "value": 10,
+                "wieldable": true
+            }
+        ],
+        "level": 25,
+        "magic": 13,
+        "mp": 100,
+        "otherhand": "left",
+        "points": 242,
+        "preferredhand": "right",
+        "username": "demo"
+    },
+    "rooms": {
+        "Advanced Training Room": {
+            "description": "This is the advanced training room. You should not stick around here unless you know how to fight!",
+            "directions": {
+                "right": "Training Room"
+            },
+            "items": {},
+            "monster": {
+                "cyclops": {
+                    "attack": 10,
+                    "defence": 5,
+                    "description": "A towering tyrant armed with barbaric weaponry and one eye",
+                    "finalboss": false,
+                    "hp": 25,
+                    "items": {},
+                    "level": 5,
+                    "magic": 0,
+                    "mp": 0,
+                    "name": "Cyclops",
+                    "points": 30
+                }
+            },
+            "name": "Advanced Training Room",
+            "npc": {}
+        },
+        "Crossroads": {
+            "description": "A literal crossroad with a wooden sign that says: \n Elven Creek LEFT \n Elven Woods RIGHT \n Lucaria Lake UP. \n\n Enter the Woods at your own risk!!!",
+            "directions": {
+                "down": "The Courtyard",
+                "left": "The Toadstool Cafe",
+                "right": "The Meadows",
+                "up": "Lucaria Lake"
+            },
+            "items": {},
+            "monster": {
+                "slime": {
+                    "attack": 5,
+                    "defence": 5,
+                    "description": "A red slime with beady eyes",
+                    "finalboss": false,
+                    "hp": 10,
+                    "items": {
+                        "common potion": {
+                            "attack": 0,
+                            "defence": 0,
+                            "description": "A flask of red liquid that heals 10HP.",
+                            "hp": 10,
+                            "itemtype": "potion",
+                            "magic": 0,
+                            "name": "Common Potion",
+                            "value": 5,
+                            "wieldable": false
+                        }
+                    },
+                    "level": 2,
+                    "magic": 0,
+                    "mp": 0,
+                    "name": "Slime",
+                    "points": 30
+                }
+            },
+            "name": "Crossroads",
+            "npc": {}
+        },
+        "Dungeon": {
+            "description": "It's cold and wet here underground. The long corridor leads to a room where the final boss is waiting. There's an item displayed to your left.",
+            "directions": {
+                "up": "The Courtyard"
+            },
+            "items": {},
+            "monster": {},
+            "name": "Dungeon",
+            "npc": {}
+        },
+        "Lecture Hall": {
+            "description": "A small auditorium that is the main lecture hall where non-combat lessons take place.",
+            "directions": {
+                "left": "The Courtyard"
+            },
+            "items": {},
+            "monster": {},
+            "name": "Lecture Hall",
+            "npc": {
+                "lyra": {
+                    "description": "Student of Serpent Academy. She looks grumpy!",
+                    "items": {},
+                    "name": "Lyra",
+                    "social": 0,
+                    "type": "student"
+                },
+                "orion": {
+                    "description": "Student of Serpent Academy. He seems grumpy!",
+                    "items": {},
+                    "name": "Orion",
+                    "social": 0,
+                    "type": "student"
+                }
+            }
+        },
+        "Lucaria Lake": {
+            "description": "Vast lake, Lucaria. You can see the sunlight reflecting off its surface. The view is rather nice! Up ahead you can see the boathouse.",
+            "directions": {
+                "down": "Crossroads",
+                "up": "The Boathouse"
+            },
+            "items": {
+                "health potion": {
+                    "attack": 0,
+                    "defence": 0,
+                    "description": "A flask of red liquid that heals 50HP.",
+                    "hp": 50,
+                    "itemtype": "potion",
+                    "magic": 0,
+                    "name": "Health Potion",
+                    "value": 5,
+                    "wieldable": false
+                },
+                "lucarian shield": {
+                    "attack": 0,
+                    "defence": 25,
+                    "description": "A metal shield dropped by the Hydra, it is engraved with an aquarian language",
+                    "hp": 0,
+                    "itemtype": "shield",
+                    "magic": 0,
+                    "name": "Lucarian Shield",
+                    "value": 25,
+                    "wieldable": true
+                },
+                "thorny dagger": {
+                    "attack": 10,
+                    "defence": 5,
+                    "description": "A sharp, thorned dagger. A reward from the boatman",
+                    "hp": 0,
+                    "itemtype": "melee",
+                    "magic": 0,
+                    "name": "Thorny Dagger",
+                    "value": 5,
+                    "wieldable": true
+                }
+            },
+            "monster": {
+                "hydra": {
+                    "attack": 20,
+                    "defence": 10,
+                    "description": "A silver serpentine water monster with scaled skin and four heads",
+                    "finalboss": false,
+                    "hp": 30,
+                    "items": {
+                        "lucarian shield": {
+                            "attack": 0,
+                            "defence": 25,
+                            "description": "A metal shield dropped by the Hydra, it is engraved with an aquarian language",
+                            "hp": 0,
+                            "itemtype": "shield",
+                            "magic": 0,
+                            "name": "Lucarian Shield",
+                            "value": 25,
+                            "wieldable": true
+                        }
+                    },
+                    "level": 5,
+                    "magic": 0,
+                    "mp": 15,
+                    "name": "Hydra",
+                    "points": 50
+                },
+                "silver swordfish": {
+                    "attack": 20,
+                    "defence": 10,
+                    "description": "A fish with an actual sword for a nose",
+                    "finalboss": false,
+                    "hp": 50,
+                    "items": {
+                        "common potion": {
+                            "attack": 0,
+                            "defence": 0,
+                            "description": "A flask of red liquid that heals 10HP.",
+                            "hp": 10,
+                            "itemtype": "potion",
+                            "magic": 0,
+                            "name": "Common Potion",
+                            "value": 5,
+                            "wieldable": false
+                        }
+                    },
+                    "level": 3,
+                    "magic": 10,
+                    "mp": 0,
+                    "name": "Silver Swordfish",
+                    "points": 40
+                },
+                "toxic frog": {
+                    "attack": 10,
+                    "defence": 10,
+                    "description": "A frog that has adapted to the mystical lake environment",
+                    "finalboss": false,
+                    "hp": 10,
+                    "items": {},
+                    "level": 5,
+                    "magic": 0,
+                    "mp": 5,
+                    "name": "Toxic Frog",
+                    "points": 15
+                }
+            },
+            "name": "Lucaria Lake",
+            "npc": {}
+        },
+        "The Boathouse": {
+            "description": "This is the Lucaria lake boathouse.",
+            "directions": {
+                "down": "Lucaria Lake"
+            },
+            "items": {},
+            "monster": {},
+            "name": "The Boathouse",
+            "npc": {}
+        },
+        "The Courtyard": {
+            "description": "The expansive courtyard boasts a myriad of sculptures and beautiful architecture. You can see students and teachers milling around.",
+            "directions": {
+                "down": "Dungeon",
+                "left": "Training Room",
+                "right": "Lecture Hall",
+                "up": "Crossroads"
+            },
+            "items": {},
+            "monster": {},
+            "name": "The Courtyard",
+            "npc": {
+                "caspian": {
+                    "description": "Student of Serpent Academy. He seems a bit sad",
+                    "items": {},
+                    "name": "Caspian",
+                    "social": 0,
+                    "type": "student"
+                },
+                "fae": {
+                    "description": "Student of Serpent Academy. She looks calm",
+                    "items": {},
+                    "name": "Fae",
+                    "social": 0,
+                    "type": "student"
+                },
+                "luna": {
+                    "description": "Student of Serpent Academy. She seems chatty!",
+                    "items": {},
+                    "name": "Luna",
+                    "social": 6,
+                    "type": "student"
+                },
+                "thorne": {
+                    "description": "Student of Serpent Academy. He seems chatty!",
+                    "items": {},
+                    "name": "Thorne",
+                    "social": 0,
+                    "type": "student"
+                }
+            }
+        },
+        "The Elven Woods": {
+            "description": "The woods are eerie and dangerous but beautiful. Careful not to venture too far in, you will certainly get lost!",
+            "directions": {
+                "left": "The Meadows"
+            },
+            "items": {
+                "health potion": {
+                    "attack": 0,
+                    "defence": 0,
+                    "description": "A flask of red liquid that heals 50HP.",
+                    "hp": 50,
+                    "itemtype": "potion",
+                    "magic": 0,
+                    "name": "Health Potion",
+                    "value": 5,
+                    "wieldable": false
+                },
+                "sacred amulet": {
+                    "attack": 0,
+                    "defence": 25,
+                    "description": "A sacred amulet bestowed to you by Gaianthra, it has protective energy",
+                    "hp": 0,
+                    "itemtype": "shield",
+                    "magic": 25,
+                    "name": "Sacred Amulet",
+                    "value": 25,
+                    "wieldable": true
+                }
+            },
+            "monster": {
+                "cackling crow": {
+                    "attack": 15,
+                    "defence": 5,
+                    "description": "A malevolent crow with obsidian feathers",
+                    "finalboss": false,
+                    "hp": 15,
+                    "items": {
+                        "common potion": {
+                            "attack": 0,
+                            "defence": 0,
+                            "description": "A flask of red liquid that heals 10HP.",
+                            "hp": 10,
+                            "itemtype": "potion",
+                            "magic": 0,
+                            "name": "Common Potion",
+                            "value": 5,
+                            "wieldable": false
+                        }
+                    },
+                    "level": 3,
+                    "magic": 0,
+                    "mp": 0,
+                    "name": "Cackling Crow",
+                    "points": 20
+                },
+                "gaianthra": {
+                    "attack": 25,
+                    "defence": 20,
+                    "description": "The guardian of the Eleven Woods, a large treelike humanoid",
+                    "finalboss": false,
+                    "hp": 50,
+                    "items": {
+                        "sacred amulet": {
+                            "attack": 0,
+                            "defence": 25,
+                            "description": "A sacred amulet bestowed to you by Gaianthra, it has protective energy",
+                            "hp": 0,
+                            "itemtype": "shield",
+                            "magic": 25,
+                            "name": "Sacred Amulet",
+                            "value": 25,
+                            "wieldable": true
+                        }
+                    },
+                    "level": 5,
+                    "magic": 0,
+                    "mp": 25,
+                    "name": "Gaianthra",
+                    "points": 100
+                },
+                "spectral oak": {
+                    "attack": 10,
+                    "defence": 10,
+                    "description": "A sentient, haunted oak tree",
+                    "finalboss": false,
+                    "hp": 15,
+                    "items": {},
+                    "level": 2,
+                    "magic": 0,
+                    "mp": 5,
+                    "name": "Spectral Oak",
+                    "points": 20
+                }
+            },
+            "name": "The Elven Woods",
+            "npc": {}
+        },
+        "The Meadows": {
+            "description": "The meadows where many wildflowers bloom. Continuing travelling RIGHT will take you to Elven Woods.",
+            "directions": {
+                "left": "Crossroads",
+                "right": "The Elven Woods"
+            },
+            "items": {},
+            "monster": {
+                "imp": {
+                    "attack": 15,
+                    "defence": 10,
+                    "description": "Tiny little devious creature, an imp is a trickster. Make sure to never give them your true name.",
+                    "finalboss": false,
+                    "hp": 20,
+                    "items": {},
+                    "level": 3,
+                    "magic": 10,
+                    "mp": 20,
+                    "name": "Imp",
+                    "points": 30
+                }
+            },
+            "name": "The Meadows",
+            "npc": {}
+        },
+        "The Toadstool Cafe": {
+            "description": "The Toadstool Cafe is a small cafe in Elven Creek. Many witches come for it's vast selection of brews.",
+            "directions": {
+                "right": "Crossroads"
+            },
+            "items": {
+                "glowberry shortcake": {
+                    "attack": 0,
+                    "defence": 0,
+                    "description": "A cake made from the finest glowberries, increases mp",
+                    "hp": 0,
+                    "itemtype": "potion",
+                    "magic": 10,
+                    "name": "Glowberry Shortcake",
+                    "value": 5,
+                    "wieldable": true
+                },
+                "healing honey bread": {
+                    "attack": 0,
+                    "defence": 10,
+                    "description": "A freshly baked slice of honey bread, Increases hp fully",
+                    "hp": 30,
+                    "itemtype": "potion",
+                    "magic": 10,
+                    "name": "Healing Honey Bread",
+                    "value": 5,
+                    "wieldable": true
+                },
+                "strength soda": {
+                    "attack": 0,
+                    "defence": 25,
+                    "description": "A purple, sparkling soda that allows you to block damage",
+                    "hp": 0,
+                    "itemtype": "potion",
+                    "magic": 0,
+                    "name": "Strength Soda",
+                    "value": 5,
+                    "wieldable": true
+                }
+            },
+            "monster": {},
+            "name": "The Toadstool Cafe",
+            "npc": {
+                "rune": {
+                    "description": "Student of Serpent Academy. He seems sad about something",
+                    "items": {},
+                    "name": "Rune",
+                    "social": 0,
+                    "type": "student"
+                }
+            }
+        },
+        "Training Room": {
+            "description": "This is the training room where the students practice to fight. There are training dummies to your left as well as a training swords and training shields nearby.",
+            "directions": {
+                "left": "Advanced Training Room",
+                "right": "The Courtyard"
+            },
+            "items": {
+                "training shield": {
+                    "attack": 0,
+                    "defence": 2,
+                    "description": "A wooden kite shield used by students while training.",
+                    "hp": 0,
+                    "itemtype": "shield",
+                    "magic": 0,
+                    "name": "Training Shield",
+                    "value": 10,
+                    "wieldable": true
+                },
+                "wooden stick": {
+                    "attack": 1,
+                    "defence": 1,
+                    "description": "A wooden stick that's about as long as your arm. Not a very useful weapon.",
+                    "hp": 0,
+                    "itemtype": "melee",
+                    "magic": 0,
+                    "name": "Wooden Stick",
+                    "value": 0,
+                    "wieldable": true
+                }
+            },
+            "monster": {},
+            "name": "Training Room",
+            "npc": {
+                "calista": {
+                    "description": "Student of Serpent Academy. She seems to be in a good mood!",
+                    "items": {},
+                    "name": "Calista",
+                    "social": 0,
+                    "type": "student"
+                }
+            }
+        }
+    }
+}
