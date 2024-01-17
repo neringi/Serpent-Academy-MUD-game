@@ -14,9 +14,9 @@ TO RUN UNIT TESTS (note, print functions are suppressed)
 ❯ python3 -b -m unittest discover tests 1> /dev/null  
 
 TO RUN THE GAME (Note, $PATH should be where you've placed the gameDnk33_)
-❯ python3 $PATH/Serpent-Academy/scripts  
+❯ python3 {path}/Serpent-Academy/scripts  
 
 or
 
-❯ $PATH/Serpent-Academy/scripts/__main__.py
+❯ {path}/Serpent-Academy/scripts/__main__.py
 
